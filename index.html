@@ -208,6 +208,25 @@ button{font:inherit;color:inherit}
 .stack .s2{transform:rotate(7deg) translateX(34%)}
 .stack .s3{position:relative;z-index:2}
 
+
+/* ---------- sister brand ---------- */
+.sister{padding-block:clamp(88px,10vw,140px) 0}
+.sis-box{border-radius:34px;background:var(--white);padding:clamp(26px,4.5vw,64px);display:flex;flex-wrap:wrap;align-items:center;gap:clamp(32px,5vw,72px);box-shadow:inset 0 0 0 1.5px var(--line)}
+.sis-copy{flex:999 1 420px;min-width:0;display:flex;flex-direction:column;gap:18px}
+.sis-logo{width:min(100%,360px);height:auto}
+.sis-lead{margin:0;max-width:560px;font-size:clamp(17px,1.5vw,20px);line-height:1.5;color:var(--muted);font-weight:500}
+.sis-tags{margin:0;padding:0;list-style:none;display:flex;flex-wrap:wrap;gap:8px}
+.sis-tags li{font-size:14px;font-weight:600;padding:7px 13px;border-radius:999px;background:var(--paper)}
+.sis-ctas{display:flex;flex-wrap:wrap;align-items:center;gap:12px 20px;margin-top:6px}
+.btn-blue{background:#293FA6;color:var(--white);padding:5px 5px 5px 18px}
+.btn-blue .dot{display:inline-flex;width:34px;height:34px;border-radius:50%;background:var(--white);color:#293FA6;align-items:center;justify-content:center}
+.btn-blue:hover .dot{transform:rotate(45deg)}
+.sis-ig{font-weight:600;font-size:15px;text-decoration:none;color:#293FA6}
+.sis-ig:hover{text-decoration:underline}
+.sis-phone{flex:1 1 200px;max-width:240px;margin:0 auto;display:block;border-radius:26px;overflow:hidden;border:6px solid var(--ink);transform:rotate(4deg);box-shadow:0 20px 40px rgba(11,13,23,.18);transition:transform .4s}
+.sis-phone:hover{transform:rotate(0deg) translateY(-4px)}
+.sis-phone img{width:100%;height:auto;display:block}
+
 /* ---------- people ---------- */
 .people{padding-block:clamp(110px,12vw,170px) 0}
 .ppl{display:grid;grid-template-columns:repeat(auto-fit,minmax(min(100%,300px),1fr));gap:16px}
@@ -302,6 +321,8 @@ dialog.player::backdrop{background:rgba(11,13,23,.86)}
   .stack{min-height:380px}
   .person .ph{aspect-ratio:1/1}
   .cols div[style]{text-align:left}
+  .sis-phone{display:none}
+  .sister{padding-block:64px 0}
 }
 
 @media (prefers-reduced-motion:reduce){
@@ -546,6 +567,26 @@ dialog.player::backdrop{background:rgba(11,13,23,.86)}
   </div>
 </section>
 
+
+<!-- SISTER BRAND -->
+<section class="sister" id="instant-shoots" aria-label="Nikhaar Instant Shoots">
+  <div class="wrap">
+    <div class="sis-box rv">
+      <div class="sis-copy">
+        <span class="eyebrow">Also from Nikhaar</span>
+        <img class="sis-logo" src="assets/img/nis-logo-blue.png" alt="Nikhaar Instant Shoots" width="964" height="269" loading="lazy">
+        <p class="sis-lead">Got an event? Our creators shoot it on iPhone and edit your reels right there, so you can post while the moment is still fresh.</p>
+        <ul class="sis-tags"><li>Car &amp; bike deliveries</li><li>Birthdays</li><li>Weddings</li><li>Store openings</li><li>College &amp; corporate events</li></ul>
+        <div class="sis-ctas">
+          <a class="btn btn-blue" href="https://nikhaarinstantshoots.com" target="_blank" rel="noopener">Book an instant shoot<span class="dot"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M7 17L17 7M8 7h9v9"/></svg></span></a>
+          <a class="sis-ig" href="https://www.instagram.com/nikhaarinstantshoots/" target="_blank" rel="noopener">@nikhaarinstantshoots ↗</a>
+        </div>
+      </div>
+      <a class="sis-phone" href="https://nikhaarinstantshoots.com" target="_blank" rel="noopener" aria-label="Visit Nikhaar Instant Shoots"><img src="assets/img/nis-endcard.jpg" alt="" loading="lazy" width="540" height="960"></a>
+    </div>
+  </div>
+</section>
+
 <!-- PEOPLE -->
 <section class="people" id="people">
   <div class="wrap">
@@ -596,7 +637,7 @@ dialog.player::backdrop{background:rgba(11,13,23,.86)}
     </div>
     <div class="cols">
       <div><span class="h">Main menu</span><a href="#work">Work</a><a href="#services">Services</a><a href="#about">About us</a></div>
-      <div><span class="h">Say hi</span><span>+91 81058 58648</span><span>nikhaaradss@gmail.com</span><a href="https://www.instagram.com/nikhaar.ads/" target="_blank" rel="noopener">Instagram ↗</a></div>
+      <div><span class="h">Say hi</span><span>+91 81058 58648</span><span>nikhaaradss@gmail.com</span><a href="https://www.instagram.com/nikhaar.ads/" target="_blank" rel="noopener">Instagram ↗</a><a href="https://nikhaarinstantshoots.com" target="_blank" rel="noopener">Nikhaar Instant Shoots ↗</a></div>
       <div><span class="h">Studio</span><span>Vijayapura,<br>Karnataka, India</span></div>
     </div>
     <div class="legal"><span>Made by humans in Vijayapura. With a little help from AI.</span><span>© 2026 Nikhaar Ads</span></div>
