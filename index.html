@@ -6,7 +6,8 @@
 <meta property="og:title" content="Nikhaar Ads">
 <meta property="og:description" content="Story-driven ad films and Instagram content for brands. Vijayapura, India.">
 <meta property="og:image" content="assets/p/oho.jpg">
-<link rel="icon" href="assets/img/pfp.jpg">
+<link rel="icon" type="image/png" href="assets/img/icon-256.png">
+<link rel="apple-touch-icon" href="assets/img/apple-touch-icon.png">
 <title>Nikhaar Ads</title>
 <meta name="claude:viewport-fit-sides" content="cover">
 <meta name="description" content="Nikhaar Ads makes story-driven ad films and Instagram content for brands. Based in Vijayapura, Karnataka.">
@@ -66,8 +67,7 @@ button{font:inherit;color:inherit}
 .navpills a{text-decoration:none;background:var(--white);font-size:14px;font-weight:600;padding:10px 16px;border-radius:999px;transition:background .2s,color .2s}
 .navpills a:hover{background:var(--blue);color:var(--white)}
 .logo{grid-column:2;display:flex;align-items:center;gap:8px;text-decoration:none;color:var(--blue)}
-.logo img{width:34px;height:34px;border-radius:50%}
-.logo span{font-family:var(--display);font-stretch:75%;font-weight:800;font-size:30px;line-height:1;letter-spacing:.01em}
+.logo img{height:36px;width:auto;display:block}
 .top-r{grid-column:3;justify-self:end;display:flex;align-items:center;gap:14px}
 .top-r small{font-size:12px;line-height:1.3;text-align:right;font-weight:500}
 .menu-btn{display:none;width:44px;height:44px;border-radius:50%;border:2px solid var(--ink);background:transparent;align-items:center;justify-content:center;cursor:pointer}
@@ -236,7 +236,7 @@ button{font:inherit;color:inherit}
 .cols a{text-decoration:none}
 .cols a:hover{text-decoration:underline}
 .legal{display:flex;flex-wrap:wrap;justify-content:space-between;gap:10px;font-size:14px;opacity:.85}
-.wordmark{font-size:24.5vw;line-height:.78;text-align:center;color:var(--paper);margin-bottom:-2.4vw;white-space:nowrap;user-select:none}
+.wordmark{width:100%;height:auto;margin:8px 0 clamp(20px,3vw,40px);user-select:none}
 
 /* ---------- player ---------- */
 dialog.player{border:0;padding:0;background:transparent;max-width:min(92vw,1100px);width:100%;max-height:92vh;overflow:visible}
@@ -252,8 +252,8 @@ dialog.player::backdrop{background:rgba(11,13,23,.86)}
 #intro{position:fixed;inset:0;z-index:100;background:var(--paper);display:flex;flex-direction:column;align-items:center;justify-content:center;gap:4px;transition:transform .95s cubic-bezier(.75,0,.2,1);cursor:pointer}
 #intro::after{content:"";position:absolute;left:0;right:0;top:100%;height:14vh;background:var(--blue)}
 #intro.out{transform:translateY(-115%)}
-#intro .wm{display:flex;overflow:hidden;color:var(--blue);font-family:var(--display);font-stretch:75%;font-weight:800;text-transform:uppercase;font-size:clamp(72px,15vw,200px);line-height:.9;padding-bottom:.04em}
-#intro .wm span{display:inline-block;transform:translateY(105%);animation:introUp .7s cubic-bezier(.2,.8,.2,1) forwards}
+#intro .wm{overflow:hidden;width:min(78vw,620px);padding-bottom:4px}
+#intro .wm img{width:100%;height:auto;display:block;transform:translateY(105%);animation:introUp .9s .1s cubic-bezier(.2,.8,.2,1) forwards}
 #intro svg{width:clamp(220px,40vw,560px);height:auto;margin-top:-.2em;overflow:visible}
 #intro svg path{fill:none;stroke:var(--blue);stroke-width:12;stroke-linecap:round;stroke-dasharray:1;stroke-dashoffset:1;animation:introDraw 1s .55s cubic-bezier(.6,0,.2,1) forwards}
 #intro .tg{font-size:13px;font-weight:700;letter-spacing:.14em;text-transform:uppercase;opacity:0;animation:introFade .5s 1.15s forwards;margin-top:6px}
@@ -311,8 +311,8 @@ dialog.player::backdrop{background:rgba(11,13,23,.86)}
     if(seen||matchMedia('(prefers-reduced-motion: reduce)').matches)return;
     try{sessionStorage.setItem('nk-intro','1');}catch(e){}
     var el=document.createElement('div');el.id='intro';el.setAttribute('aria-hidden','true');
-    var wm='<div class="wm">'+'NIKHAAR'.split('').map(function(c,i){return '<span style="animation-delay:'+(0.08+i*0.06).toFixed(2)+'s">'+c+'</span>';}).join('')+'</div>';
-    el.innerHTML=wm+'<svg viewBox="0 0 600 110" aria-hidden="true"><path pathLength="1" d="M12 70 C 110 18, 170 112, 238 66 C 292 30, 258 4, 228 38 C 196 78, 330 104, 424 66 C 486 42, 544 58, 588 46"/></svg><span class="tg">Ad films · Content · AI</span>';
+    var wm='<div class="wm"><img src="assets/img/logo-blue.png" alt=""></div>';
+    el.innerHTML=wm+'<svg viewBox="0 0 600 110" aria-hidden="true"><path pathLength="1" d="M12 70 C 110 18, 170 112, 238 66 C 292 30, 258 4, 228 38 C 196 78, 330 104, 424 66 C 486 42, 544 58, 588 46"/></svg><span class="tg">Ads that make your brand shine.</span>';
     root.classList.add('intro-on');
     document.body.appendChild(el);
     var done=false;
@@ -327,7 +327,7 @@ dialog.player::backdrop{background:rgba(11,13,23,.86)}
     <nav class="navpills" aria-label="Main">
       <a href="#work">Work</a><a href="#services">Services</a><a href="#about">About us</a>
     </nav>
-    <a class="logo" href="#top" aria-label="Nikhaar Ads home"><img src="assets/img/pfp.jpg" alt=""><span>NIKHAAR</span></a>
+    <a class="logo" href="#top" aria-label="Nikhaar Ads home"><img src="assets/img/logo-blue-sm.png" alt="Nikhaar" width="520" height="146"></a>
     <div class="top-r">
       <small>Vijayapura, India<br>Working everywhere</small>
       <a class="btn btn-dark" href="#contact">Let’s talk<span class="dot"><svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="#fff" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M7 17L17 7M8 7h9v9"/></svg></span></a>
@@ -580,7 +580,7 @@ dialog.player::backdrop{background:rgba(11,13,23,.86)}
       <div><span class="h">Studio</span><span>Vijayapura,<br>Karnataka, India</span></div>
     </div>
     <div class="legal"><span>Made by humans in Vijayapura. With a little help from AI.</span><span>© 2026 Nikhaar Ads</span></div>
-    <div class="wordmark disp" aria-hidden="true">Nikhaar</div>
+    <img class="wordmark" src="assets/img/logo-paper.png" alt="" aria-hidden="true" width="1736" height="486">
   </div>
 </footer>
 
