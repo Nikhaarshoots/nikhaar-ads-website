@@ -104,16 +104,6 @@ button{font:inherit;color:inherit}
 .marq>*{flex:none}
 .band .marq span{font-family:var(--display);font-stretch:75%;font-weight:800;text-transform:uppercase;font-size:clamp(22px,2.6vw,38px);letter-spacing:.02em;white-space:nowrap;padding-right:28px}
 @keyframes marq{from{transform:translateX(0)}to{transform:translateX(-50%)}}
-@media (max-width:640px){
-  .swirl{display:none}
-  .hero-h h1{font-size:18.5vw}
-  .hero-h .sticker,.more .sticker{position:static;margin:14px 4px 0;font-size:12px;padding:7px 13px}
-  .fill .sticker{display:none}
-  .hero-cards{gap:6px}
-  .hero-cards .fcard{width:22vw;border-width:3px;border-radius:12px}
-  .hero-cards .fcard .lbl{font-size:9px;padding:3px 6px;left:4px;bottom:5px}
-  .more .btn{margin-top:24px}
-}
 
 /* ---------- about ---------- */
 .about{text-align:center;padding-block:clamp(110px,12vw,170px) clamp(64px,7vw,110px)}
@@ -276,6 +266,30 @@ dialog.player::backdrop{background:rgba(11,13,23,.86)}
 /* ---------- reveal ---------- */
 .rv{transition:transform .9s cubic-bezier(.2,.8,.2,1),opacity .9s}
 .js-on .rv.pre{transform:translateY(40px);opacity:.001}
+
+/* ---------- phone (kept last so it wins) ---------- */
+@media (max-width:640px){
+  .swirl{display:none}
+  .hero-h h1{font-size:18.5vw}
+  .hero-h .sticker,.more .sticker{position:static;margin:14px 4px 0;font-size:12px;padding:7px 13px}
+  .fill .sticker{display:none}
+  .hero-cards{gap:6px;padding-bottom:34px}
+  .hero-cards .fcard{width:22vw;border-width:3px;border-radius:12px}
+  .hero-cards .fcard .lbl{font-size:9px;padding:3px 6px;left:4px;bottom:5px}
+  .band{margin-top:0}
+  .about{padding-block:88px 56px}
+  .founders-pills{display:none}
+  .more .btn{margin-top:24px}
+  .sec-head{margin-bottom:28px}
+  .grid{gap:36px}
+  .path-wrap svg{display:none}
+  .path-wrap{gap:28px}
+  .svc,.svc.r,.svc.l,.svc.c{align-self:stretch;text-align:left;margin:0;padding:0 0 22px;border-bottom:2px solid var(--line);border-radius:0}
+  .phone .frame:nth-child(2){margin-bottom:28px}
+  .stack{min-height:380px}
+  .person .ph{aspect-ratio:1/1}
+  .cols div[style]{text-align:left}
+}
 
 @media (prefers-reduced-motion:reduce){
   *,*::before,*::after{animation:none !important;transition:none !important}
@@ -499,8 +513,8 @@ dialog.player::backdrop{background:rgba(11,13,23,.86)}
     <div class="sec-head"><span class="eyebrow">Now running</span><h2 class="disp">Every month,<br>on repeat</h2></div>
     <div class="case-box rv">
       <div class="case-copy">
-        <span class="tagp">Monthly partner · Happy Cakes</span>
-        <p class="big">We run Happy Cakes’ Instagram from start to finish. They bake. We make sure people see it.</p>
+        <span class="tagp">Monthly content plan · Happy Cakes</span>
+        <p class="big">Fresh reels every week, without Happy Cakes lifting a camera. We plan it, shoot it, edit it and post it.</p>
         <ul><li>Content calendar</li><li>Shoots &amp; reels</li><li>Social ads</li><li>Captions &amp; posting</li></ul>
       </div>
       <div class="stack">
