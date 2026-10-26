@@ -258,6 +258,21 @@ dialog.player::backdrop{background:rgba(11,13,23,.86)}
 .player .wait{color:var(--white);text-align:center;padding:60px 20px;display:flex;flex-direction:column;gap:10px;align-items:center}
 .player .wait strong{font-family:var(--display);font-stretch:75%;font-size:56px;text-transform:uppercase;line-height:.9}
 
+/* ---------- intro ---------- */
+#intro{position:fixed;inset:0;z-index:100;background:var(--paper);display:flex;flex-direction:column;align-items:center;justify-content:center;gap:4px;transition:transform .95s cubic-bezier(.75,0,.2,1);cursor:pointer}
+#intro::after{content:"";position:absolute;left:0;right:0;top:100%;height:14vh;background:var(--blue)}
+#intro.out{transform:translateY(-115%)}
+#intro .wm{display:flex;overflow:hidden;color:var(--blue);font-family:var(--display);font-stretch:75%;font-weight:800;text-transform:uppercase;font-size:clamp(72px,15vw,200px);line-height:.9;padding-bottom:.04em}
+#intro .wm span{display:inline-block;transform:translateY(105%);animation:introUp .7s cubic-bezier(.2,.8,.2,1) forwards}
+#intro svg{width:clamp(220px,40vw,560px);height:auto;margin-top:-.2em;overflow:visible}
+#intro svg path{fill:none;stroke:var(--blue);stroke-width:12;stroke-linecap:round;stroke-dasharray:1;stroke-dashoffset:1;animation:introDraw 1s .55s cubic-bezier(.6,0,.2,1) forwards}
+#intro .tg{font-size:13px;font-weight:700;letter-spacing:.14em;text-transform:uppercase;opacity:0;animation:introFade .5s 1.15s forwards;margin-top:6px}
+@keyframes introUp{to{transform:none}}
+@keyframes introDraw{to{stroke-dashoffset:0}}
+@keyframes introFade{to{opacity:1}}
+.intro-on .hero-h h1 .ln>span,.intro-on .swirl path{animation-play-state:paused}
+.intro-on body{overflow:hidden}
+
 /* ---------- reveal ---------- */
 .rv{transition:transform .9s cubic-bezier(.2,.8,.2,1),opacity .9s}
 .js-on .rv.pre{transform:translateY(40px);opacity:.001}
@@ -272,6 +287,27 @@ dialog.player::backdrop{background:rgba(11,13,23,.86)}
 
 
 <div id="top"></div>
+<script>
+(function(){
+  var root=document.documentElement;
+  // Opening animation: once per visit, skipped for reduced motion, tap to skip
+  (function(){
+    var seen=false;
+    try{seen=sessionStorage.getItem('nk-intro')==='1';}catch(e){}
+    if(seen||matchMedia('(prefers-reduced-motion: reduce)').matches)return;
+    try{sessionStorage.setItem('nk-intro','1');}catch(e){}
+    var el=document.createElement('div');el.id='intro';el.setAttribute('aria-hidden','true');
+    var wm='<div class="wm">'+'NIKHAAR'.split('').map(function(c,i){return '<span style="animation-delay:'+(0.08+i*0.06).toFixed(2)+'s">'+c+'</span>';}).join('')+'</div>';
+    el.innerHTML=wm+'<svg viewBox="0 0 600 110" aria-hidden="true"><path pathLength="1" d="M12 70 C 110 18, 170 112, 238 66 C 292 30, 258 4, 228 38 C 196 78, 330 104, 424 66 C 486 42, 544 58, 588 46"/></svg><span class="tg">Ad films · Content · AI</span>';
+    root.classList.add('intro-on');
+    document.body.appendChild(el);
+    var done=false;
+    function finish(){if(done)return;done=true;el.classList.add('out');root.classList.remove('intro-on');setTimeout(function(){el.remove();},1000);}
+    el.addEventListener('click',finish);
+    setTimeout(finish,2100);
+  })();
+})();
+</script>
 <header class="top">
   <div class="wrap">
     <nav class="navpills" aria-label="Main">
@@ -547,6 +583,7 @@ dialog.player::backdrop{background:rgba(11,13,23,.86)}
 (function(){
   var root=document.documentElement;
   root.classList.add('js-on');
+
 
   // Films that have web files ready. Add a slug here once assets/v/<slug>.mp4 exists.
   var FILMS={
