@@ -208,6 +208,83 @@ button{font:inherit;color:inherit}
 .stack .s2{transform:rotate(7deg) translateX(34%)}
 .stack .s3{position:relative;z-index:2}
 
+/* ---------- pricing ---------- */
+.pricing{padding-block:clamp(110px,12vw,170px) 0}
+.rs{font-family:var(--body);font-stretch:100%;font-weight:600;font-size:.56em;vertical-align:.42em;margin-right:.06em;letter-spacing:0}
+.pr-bar{display:flex;flex-wrap:wrap;justify-content:space-between;align-items:center;gap:18px 32px;margin-bottom:40px}
+.pr-intro{margin:0;max-width:520px;font-size:clamp(17px,1.5vw,20px);font-weight:500;color:var(--muted)}
+.pr-toggle{display:inline-flex;flex-wrap:wrap;gap:4px;background:var(--white);padding:5px;border-radius:999px;box-shadow:inset 0 0 0 1.5px var(--line)}
+.pr-toggle button{border:0;background:transparent;cursor:pointer;font-weight:600;font-size:15px;padding:8px 18px;border-radius:999px;min-height:44px;display:inline-flex;align-items:center;gap:8px;transition:background .25s,color .25s}
+.pr-toggle button[aria-pressed="true"]{background:var(--ink);color:var(--white)}
+.pr-toggle .save{font-size:12px;font-weight:700;background:var(--blue);color:var(--white);padding:3px 8px;border-radius:999px}
+.plans{display:grid;grid-template-columns:minmax(0,1fr);gap:28px;align-items:stretch;max-width:600px;margin:0 auto}
+@media (min-width:860px){.plans{grid-template-columns:repeat(3,minmax(0,1fr));gap:16px;max-width:none}}
+.plan{position:relative;background:var(--white);border-radius:30px;padding:clamp(24px,2.6vw,36px);display:flex;flex-direction:column;gap:22px}
+.plan h3{margin:0;font-size:clamp(46px,4.4vw,66px);color:var(--blue)}
+.plan .for{margin:8px 0 0;font-size:15px;font-weight:600;color:var(--muted)}
+.price{display:flex;align-items:baseline;flex-wrap:wrap;gap:0 10px}
+.price .amt{font-family:var(--display);font-stretch:75%;font-weight:800;font-size:clamp(66px,6.4vw,100px);line-height:.88;letter-spacing:-.01em}
+.price .per{font-weight:600;font-size:15px;color:var(--muted)}
+.billnote{margin:-12px 0 0;font-size:14px;font-weight:500;color:var(--muted)}
+.inc{list-style:none;margin:0;padding:20px 0 0;border-top:1.5px solid var(--line);display:flex;flex-direction:column;gap:14px;flex:1}
+.inc li{display:grid;grid-template-columns:22px 1fr;column-gap:12px}
+.inc li::before{content:"";grid-row:span 2;width:22px;height:22px;border-radius:50%;margin-top:1px;background:var(--blue) url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='none' stroke='white' stroke-width='3.6' stroke-linecap='round' stroke-linejoin='round'%3E%3Cpath d='M5 12.5l4.5 4.5L19 7.5'/%3E%3C/svg%3E") center/12px no-repeat}
+.inc strong{font-size:17px;line-height:1.35}
+.inc span{font-size:14.5px;color:var(--muted)}
+.plan-btn{justify-content:space-between;background:var(--ink);color:var(--white);padding:5px 5px 5px 20px}
+.plan-btn .dot{display:inline-flex;width:34px;height:34px;border-radius:50%;background:var(--blue);color:var(--white);align-items:center;justify-content:center}
+.plan-btn:hover .dot{transform:rotate(45deg)}
+.plan .sticker{position:absolute;top:-15px;right:24px}
+.plan.hot{background:var(--blue);color:var(--white)}
+.plan.hot h3{color:var(--white)}
+.plan.hot .for,.plan.hot .per,.plan.hot .billnote,.plan.hot .inc span{color:#D7DBFB}
+.plan.hot .inc{border-color:rgba(255,255,255,.28)}
+.plan.hot .inc li::before{background-color:var(--white);background-image:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='none' stroke='%232236E0' stroke-width='3.6' stroke-linecap='round' stroke-linejoin='round'%3E%3Cpath d='M5 12.5l4.5 4.5L19 7.5'/%3E%3C/svg%3E")}
+.plan.hot .plan-btn{background:var(--white);color:var(--ink)}
+.pr-note{margin:20px 0 0;text-align:center;font-size:15px;font-weight:600;color:var(--muted)}
+.pr-note a{color:var(--blue)}
+.pr-sub{display:flex;flex-wrap:wrap;justify-content:space-between;align-items:flex-end;gap:12px 24px;margin:clamp(80px,9vw,130px) 0 18px}
+.pr-sub h3{margin:0;font-size:clamp(46px,5.6vw,88px);color:var(--blue)}
+.pr-sub p{margin:0;font-weight:600;color:var(--muted);max-width:380px}
+.menu{border-top:2px solid var(--ink)}
+.mi{display:flex;flex-wrap:wrap;align-items:center;gap:14px 32px;padding:clamp(24px,2.6vw,34px) 0;border-bottom:2px solid var(--line)}
+.mi-l{flex:999 1 380px;min-width:0;display:flex;flex-direction:column;gap:8px}
+.mi h4{margin:0;font-size:clamp(36px,3.6vw,56px)}
+.mi p{margin:0;color:var(--muted);max-width:640px}
+.mi-tags{margin:4px 0 0;padding:0;list-style:none;display:flex;flex-wrap:wrap;gap:8px}
+.mi-tags li{font-size:14px;font-weight:600;padding:6px 13px;border-radius:999px;background:var(--white)}
+.mi-p{flex:1 0 auto;display:flex;flex-direction:column;align-items:flex-end;gap:2px}
+.mi-p small{font-size:12px;font-weight:700;letter-spacing:.1em;text-transform:uppercase;color:var(--blue)}
+.mi-p b{font-family:var(--display);font-stretch:75%;font-weight:800;font-size:clamp(50px,4.8vw,76px);line-height:.9}
+.extras{display:grid;grid-template-columns:repeat(auto-fit,minmax(min(100%,440px),1fr));gap:16px;margin-top:clamp(80px,9vw,130px);align-items:start}
+.ex-col{display:flex;flex-direction:column;gap:16px}
+.ex-h{margin:0 0 6px;font-size:clamp(46px,4.8vw,72px);color:var(--blue)}
+.pack{background:var(--ink);color:var(--white);border-radius:28px;padding:clamp(24px,2.6vw,34px);display:flex;flex-direction:column;gap:16px}
+.pack .sticker{align-self:flex-start;animation:none}
+.pack-top{display:flex;flex-wrap:wrap;justify-content:space-between;align-items:flex-end;gap:4px 16px}
+.pack h4{margin:0;font-size:clamp(40px,3.8vw,58px)}
+.pack .pp{font-family:var(--display);font-stretch:75%;font-weight:800;font-size:clamp(40px,3.8vw,58px);color:var(--pale);line-height:.86}
+.pack .sub{margin:-8px 0 0;color:#A7AABB;font-weight:600;font-size:15px}
+.pack ul{margin:0;padding:16px 0 0;border-top:1.5px solid #2A2D3D;list-style:none;display:flex;flex-direction:column;gap:9px}
+.pack li{padding-left:22px;position:relative;color:#DADCE6;font-size:16px}
+.pack li::before{content:"";position:absolute;left:2px;top:.6em;width:8px;height:8px;border-radius:50%;background:var(--pale)}
+.pack .pnote{margin:0;font-size:14px;color:#A7AABB}
+.addon{background:var(--white);border-radius:24px;padding:22px 24px;display:flex;flex-wrap:wrap;justify-content:space-between;align-items:center;gap:10px 20px}
+.addon>div{flex:999 1 240px;min-width:0}
+.addon h4{margin:0 0 4px;font-size:19px;line-height:1.3}
+.addon p{margin:0;font-size:15px;color:var(--muted)}
+.ap{font-family:var(--display);font-stretch:75%;font-weight:800;font-size:40px;color:var(--blue);line-height:1;white-space:nowrap}
+.ap small{font-family:var(--body);font-stretch:100%;font-size:13px;font-weight:600;color:var(--muted);margin-left:4px;letter-spacing:0}
+.ap.q{font-size:30px}
+.fine{border-radius:24px;padding:24px;box-shadow:inset 0 0 0 2px var(--ink)}
+.fine ul{margin:14px 0 0;padding:0;list-style:none;display:flex;flex-direction:column;gap:9px}
+.fine li{font-size:15.5px;padding-left:24px;position:relative}
+.fine li::before{content:"→";position:absolute;left:0;color:var(--blue);font-weight:700}
+.audit{margin-top:16px;background:var(--pale);border-radius:30px;padding:clamp(26px,4.5vw,64px);display:flex;flex-wrap:wrap;justify-content:space-between;align-items:center;gap:28px 40px}
+.audit-c{flex:999 1 420px;min-width:0;display:flex;flex-direction:column;gap:14px}
+.audit .sticker{align-self:flex-start}
+.audit h3{margin:0;font-size:clamp(48px,6vw,96px)}
+.audit p{margin:0;max-width:560px;font-size:18px;font-weight:500}
 
 /* ---------- sister brand ---------- */
 .sister{padding-block:clamp(88px,10vw,140px) 0}
@@ -322,6 +399,11 @@ dialog.player::backdrop{background:rgba(11,13,23,.86)}
   .person .ph{aspect-ratio:1/1}
   .cols div[style]{text-align:left}
   .sis-phone{display:none}
+  .pr-toggle{width:100%;border-radius:26px}
+  .pr-toggle button{flex:1 1 auto;justify-content:center;padding:8px 12px;font-size:14px}
+  .plans{gap:28px}
+  .mi-p{align-items:flex-start}
+  .extras{gap:56px}
   .sister{padding-block:64px 0}
 }
 
@@ -359,7 +441,7 @@ dialog.player::backdrop{background:rgba(11,13,23,.86)}
 <header class="top">
   <div class="wrap">
     <nav class="navpills" aria-label="Main">
-      <a href="#work">Work</a><a href="#services">Services</a><a href="#about">About us</a>
+      <a href="#work">Work</a><a href="#services">Services</a><a href="#pricing">Pricing</a>
     </nav>
     <a class="logo" href="#top" aria-label="Nikhaar Ads home"><img src="assets/img/logo-blue-sm.png" alt="Nikhaar" width="520" height="146"></a>
     <div class="top-r">
@@ -373,6 +455,7 @@ dialog.player::backdrop{background:rgba(11,13,23,.86)}
   <button class="close" type="button" id="menuClose" aria-label="Close menu">✕</button>
   <a class="disp" href="#work">Work</a>
   <a class="disp" href="#services">Services</a>
+  <a class="disp" href="#pricing">Pricing</a>
   <a class="disp" href="#about">About us</a>
   <a class="disp" href="#contact">Let’s talk</a>
 </nav>
@@ -568,6 +651,105 @@ dialog.player::backdrop{background:rgba(11,13,23,.86)}
 </section>
 
 
+<!-- PRICING -->
+<section class="pricing" id="pricing">
+  <div class="wrap">
+    <div class="sec-head"><span class="eyebrow">Pricing</span><h2 class="disp">Plans that keep<br>you posting</h2></div>
+    <div class="pr-bar">
+      <p class="pr-intro">Monthly plans for your Instagram. We plan the month, shoot, edit and post, so your page never goes quiet.</p>
+      <div class="pr-toggle" role="group" aria-label="How you pay">
+        <button type="button" aria-pressed="true" data-bill="m">Pay monthly</button>
+        <button type="button" aria-pressed="false" data-bill="q">Pay 3 months upfront <span class="save">Save 10%</span></button>
+      </div>
+    </div>
+    <div class="plans">
+      <article class="plan rv">
+        <div><h3 class="disp">Starter</h3><p class="for">For cafés, salons, gyms and boutiques</p></div>
+        <div class="price"><span class="amt"><span class="rs">₹</span><span data-m="18,000" data-q="16,200">18,000</span></span><span class="per">/ month</span></div>
+        <p class="billnote" data-m="Billed monthly · 3-month minimum" data-q="₹48,600 for 3 months, paid upfront">Billed monthly · 3-month minimum</p>
+        <ul class="inc"><li><strong>8 reels</strong><span>5 showcase · 2 behind the scenes · 1 offer reel</span></li><li><strong>3 posters</strong><span>Offer · festival greeting · showcase</span></li><li><strong>2 shoot days a month</strong><span>At your place, with our crew</span></li><li><strong>Captions &amp; posting</strong><span>We post, you approve</span></li></ul>
+        <a class="btn plan-btn" href="https://wa.me/918105858648?text=Hi%20Nikhaar%20Ads%2C%20I%27m%20interested%20in%20the%20Starter%20plan%20for%20my%20brand." target="_blank" rel="noopener">Start with Starter<span class="dot"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M7 17L17 7M8 7h9v9"/></svg></span></a>
+      </article>
+      <article class="plan hot rv">
+        <span class="sticker" style="--r:4deg">Most popular</span><div><h3 class="disp">Growth</h3><p class="for">For restaurants, clinics, coaching centres and showrooms</p></div>
+        <div class="price"><span class="amt"><span class="rs">₹</span><span data-m="30,000" data-q="27,000">30,000</span></span><span class="per">/ month</span></div>
+        <p class="billnote" data-m="Billed monthly · 3-month minimum" data-q="₹81,000 for 3 months, paid upfront">Billed monthly · 3-month minimum</p>
+        <ul class="inc"><li><strong>15 reels</strong><span>8 showcase · 3 behind the scenes · 2 customer stories · 2 trending</span></li><li><strong>5 posters</strong><span>Offers, festivals and announcements</span></li><li><strong>A shoot day every week</strong><span>Fresh content all month</span></li><li><strong>Content calendar</strong><span>Planned a month ahead</span></li><li><strong>Captions &amp; posting</strong><span>We post, you approve</span></li></ul>
+        <a class="btn plan-btn" href="https://wa.me/918105858648?text=Hi%20Nikhaar%20Ads%2C%20I%27m%20interested%20in%20the%20Growth%20plan%20for%20my%20brand." target="_blank" rel="noopener">Go with Growth<span class="dot"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M7 17L17 7M8 7h9v9"/></svg></span></a>
+      </article>
+      <article class="plan rv">
+        <div><h3 class="disp">Brand Partner</h3><p class="for">For schools, colleges, builders and hospitals</p></div>
+        <div class="price"><span class="amt"><span class="rs">₹</span><span data-m="50,000" data-q="45,000">50,000</span></span><span class="per">/ month</span></div>
+        <p class="billnote" data-m="Billed monthly · 3-month minimum" data-q="₹1,35,000 for 3 months, paid upfront">Billed monthly · 3-month minimum</p>
+        <ul class="inc"><li><strong>20 reels</strong><span>Showcase, behind the scenes and trending, plus 4 customer stories and a brand story reel</span></li><li><strong>8 posters</strong><span>Including campaigns and festivals</span></li><li><strong>A shoot day every week</strong><span>Fresh content all month</span></li><li><strong>A concept ad film every 3 months</strong><span>Scripted, cast and shot like our films above</span></li><li><strong>Content calendar, captions &amp; posting</strong><span>Your whole page, handled</span></li></ul>
+        <a class="btn plan-btn" href="https://wa.me/918105858648?text=Hi%20Nikhaar%20Ads%2C%20I%27m%20interested%20in%20the%20Brand%20Partner%20plan%20for%20my%20brand." target="_blank" rel="noopener">Partner with us<span class="dot"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M7 17L17 7M8 7h9v9"/></svg></span></a>
+      </article>
+    </div>
+    <p class="pr-note">Plans show your place, your products and your team. Want a creator in the reels too? <a href="#addons">Add one from ₹10,000 a month.</a></p>
+
+    <div class="pr-sub"><h3 class="disp">Just one video?</h3><p>No plan needed. Pick a single video and we’ll make it.</p></div>
+    <div class="menu">
+      <div class="mi rv">
+        <div class="mi-l"><h4 class="disp">Quick Reel</h4><p>Shot on phone and edited fast. Right for a new dish, an offer, a launch or a shop tour.</p></div>
+        <div class="mi-p"><small>Per reel</small><b><span class="rs">₹</span>6,000</b></div>
+      </div>
+      <div class="mi rv">
+        <div class="mi-l"><h4 class="disp">Creator Reel</h4><p>A Quick Reel with a creator in it, so a real face talks about your brand.</p>
+          <ul class="mi-tags"><li>With a new creator · ₹9,000</li><li>With a popular creator · ₹12,000</li><li>Big names · on request</li></ul></div>
+        <div class="mi-p"><small>From</small><b><span class="rs">₹</span>9,000</b></div>
+      </div>
+      <div class="mi rv">
+        <div class="mi-l"><h4 class="disp">Concept Ad Film</h4><p>A story-driven ad film: idea, script, cast, a proper camera shoot, edit, and AI VFX where it helps. Like the films in our work above.</p></div>
+        <div class="mi-p"><small>From</small><b><span class="rs">₹</span>30,000</b></div>
+      </div>
+    </div>
+
+    <div class="extras">
+      <div class="ex-col">
+        <h3 class="disp ex-h">Seasonal packs</h3>
+        <div class="pack rv">
+          <span class="sticker blue" style="--r:-3deg">Diwali · Navratri · Ganesh Chaturthi</span>
+          <div class="pack-top"><h4 class="disp">Festival Pack</h4><span class="pp"><span class="rs">₹</span>15,000</span></div>
+          <p class="sub">Look your best on the days everyone is watching</p>
+          <ul><li>3 festival reels: a greeting from your team, your festive offer, and a trending one</li><li>4 posters: a festival greeting, an offer poster and 2 countdown stories</li><li>1 shoot day, up to 3 hours</li><li>Captions and posting</li></ul>
+          <p class="pnote">Book at least 10 days before the festival.</p>
+        </div>
+        <div class="pack rv">
+          <span class="sticker" style="--r:2deg;background:var(--pale);color:var(--ink)">January to April</span>
+          <div class="pack-top"><h4 class="disp">Admission Pack</h4><span class="pp"><span class="rs">₹</span>45,000</span></div>
+          <p class="sub">For schools and colleges, in admission season</p>
+          <ul><li>A 60-second campus film</li><li>6 reels on classrooms, events and results</li><li>6 admission posters</li><li>2 shoot days</li></ul>
+        </div>
+      </div>
+      <div class="ex-col" id="addons">
+        <h3 class="disp ex-h">Add-ons</h3>
+        <div class="addon rv"><div><h4>A creator in your reels</h4><p>One creator for the month, in 4 to 6 of your reels.</p></div><span class="ap"><span class="rs">₹</span>10,000<small>/ month</small></span></div>
+        <div class="addon rv"><div><h4>Meta ads</h4><p>We run your Instagram and Facebook ads, reach the right people nearby, and send a report every month. You pay the ad budget to Meta directly.</p></div><span class="ap"><span class="rs">₹</span>5,000<small>/ month</small></span></div>
+        <div class="addon rv"><div><h4>A well-known influencer</h4><p>Want a big name in your video? We get their rate and handle the rest.</p></div><span class="ap q">On request</span></div>
+        <div class="fine rv">
+          <span class="eyebrow">The small print</span>
+          <ul>
+            <li>50% advance before the shoot, the rest on delivery.</li>
+            <li>2 rounds of changes on every reel and poster.</li>
+            <li>Monthly plans run for at least 3 months.</li>
+            <li>Reels arrive within 3 days of the shoot.</li>
+            <li>Ad budgets, props, decor and location fees are not included.</li>
+          </ul>
+        </div>
+      </div>
+    </div>
+
+    <div class="audit rv">
+      <div class="audit-c">
+        <span class="sticker" style="--r:-4deg">Free</span>
+        <h3 class="disp">Not sure where to start?</h3>
+        <p>Send us your Instagram. We’ll look through it and tell you what’s working, what isn’t, and which plan fits. No charge.</p>
+      </div>
+      <a class="btn btn-dark" href="https://wa.me/918105858648?text=Hi%20Nikhaar%20Ads%2C%20I%27d%20like%20a%20free%20Instagram%20audit.%20My%20page%20is%3A%20" target="_blank" rel="noopener">Get a free Instagram audit<span class="dot"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M7 17L17 7M8 7h9v9"/></svg></span></a>
+    </div>
+  </div>
+</section>
+
 <!-- SISTER BRAND -->
 <section class="sister" id="instant-shoots" aria-label="Nikhaar Instant Shoots">
   <div class="wrap">
@@ -620,7 +802,10 @@ dialog.player::backdrop{background:rgba(11,13,23,.86)}
       <details><summary>Can you handle our Instagram every month?</summary><div class="a">Yes. We plan the month, shoot, edit, write the captions and post. You approve, we handle the rest.</div></details>
       <details><summary>Do you make ads in Kannada and Hindi?</summary><div class="a">Yes. We make campaigns in Kannada, Hindi and English, so the same story feels local wherever it runs.</div></details>
       <details><summary>Do you work outside Vijayapura?</summary><div class="a">Yes. We’re based in Vijayapura and work with brands across India.</div></details>
-      <details><summary>How do we get started?</summary><div class="a">Message us on WhatsApp with your brand and what you need. We’ll reply within a day with ideas and next steps.</div></details>
+      <details><summary>How much does it cost?</summary><div class="a">Monthly plans start at ₹18,000, single reels at ₹6,000 and concept ad films at ₹30,000. <a href="#pricing">See all plans and prices.</a></div></details>
+      <details><summary>How does payment work?</summary><div class="a">50% before the shoot and the rest on delivery. Monthly plans run for at least three months, and you save 10% if you pay for three months upfront.</div></details>
+      <details><summary>Can we have a creator in our videos?</summary><div class="a">Yes. Add a creator to your monthly plan from ₹10,000 a month, or pick a Creator Reel for a single video. For a well-known influencer, we get their rate and handle the rest.</div></details>
+      <details><summary>How do we get started?</summary><div class="a">Ask for a free Instagram audit on WhatsApp. We’ll look at your page, tell you what’s working and suggest the right plan.</div></details>
     </div>
   </div>
 </section>
@@ -632,11 +817,12 @@ dialog.player::backdrop{background:rgba(11,13,23,.86)}
   <div class="wrap">
     <h2>Okay, now tell us your story.</h2>
     <div class="ctas">
-      <a class="btn btn-dark" href="https://wa.me/918105858648" target="_blank" rel="noopener">Chat on WhatsApp<span class="dot"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M7 17L17 7M8 7h9v9"/></svg></span></a>
+      <a class="btn btn-dark" href="https://wa.me/918105858648?text=Hi%20Nikhaar%20Ads%2C%20I%27d%20like%20a%20free%20Instagram%20audit.%20My%20page%20is%3A%20" target="_blank" rel="noopener">Get a free Instagram audit<span class="dot"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M7 17L17 7M8 7h9v9"/></svg></span></a>
+      <a class="btn btn-light" href="https://wa.me/918105858648" target="_blank" rel="noopener">Chat on WhatsApp</a>
       <a class="btn btn-light" href="mailto:nikhaaradss@gmail.com">nikhaaradss@gmail.com</a>
     </div>
     <div class="cols">
-      <div><span class="h">Main menu</span><a href="#work">Work</a><a href="#services">Services</a><a href="#about">About us</a></div>
+      <div><span class="h">Main menu</span><a href="#work">Work</a><a href="#services">Services</a><a href="#pricing">Pricing</a><a href="#about">About us</a></div>
       <div><span class="h">Say hi</span><span>+91 81058 58648</span><span>nikhaaradss@gmail.com</span><a href="https://www.instagram.com/nikhaar.ads/" target="_blank" rel="noopener">Instagram ↗</a><a href="https://www.nikhaarinstantshoots.com" target="_blank" rel="noopener">Nikhaar Instant Shoots ↗</a></div>
       <div><span class="h">Studio</span><span>Vijayapura,<br>Karnataka, India</span></div>
     </div>
@@ -734,6 +920,16 @@ dialog.player::backdrop{background:rgba(11,13,23,.86)}
     ink.style.strokeDashoffset=String(1-q);
   }
   addEventListener('scroll',onScroll,{passive:true});addEventListener('resize',onScroll);onScroll();
+
+  // Pricing: monthly vs 3 months upfront
+  var bills=[].slice.call(document.querySelectorAll('[data-bill]'));
+  bills.forEach(function(b){b.addEventListener('click',function(){
+    var k=b.dataset.bill;
+    bills.forEach(function(x){x.setAttribute('aria-pressed',x===b?'true':'false');});
+    [].slice.call(document.querySelectorAll('.plan [data-m]')).forEach(function(el){
+      if(el.classList.contains('billnote'))el.textContent=el.getAttribute('data-'+k);else el.textContent=el.getAttribute('data-'+k);
+    });
+  });});
 
   // Film player
   var dlg=document.getElementById('player'),pv=document.getElementById('pv'),pw2=document.getElementById('pwait'),pcap=document.getElementById('pcap'),pwt=document.getElementById('pwt');
