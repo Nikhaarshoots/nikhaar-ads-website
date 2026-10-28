@@ -280,11 +280,25 @@ button{font:inherit;color:inherit}
 .fine ul{margin:14px 0 0;padding:0;list-style:none;display:flex;flex-direction:column;gap:9px}
 .fine li{font-size:15.5px;padding-left:24px;position:relative}
 .fine li::before{content:"→";position:absolute;left:0;color:var(--blue);font-weight:700}
-.audit{margin-top:16px;background:var(--pale);border-radius:30px;padding:clamp(26px,4.5vw,64px);display:flex;flex-wrap:wrap;justify-content:space-between;align-items:center;gap:28px 40px}
-.audit-c{flex:999 1 420px;min-width:0;display:flex;flex-direction:column;gap:14px}
+.audit{position:relative;overflow:hidden;margin-top:clamp(56px,6vw,90px);background:var(--ink);color:var(--white);border-radius:34px;padding:clamp(28px,5vw,72px);display:flex;flex-wrap:wrap;align-items:center;gap:40px 64px;box-shadow:0 30px 60px rgba(34,54,224,.22)}
+.audit-sw{position:absolute;inset:0;width:100%;height:100%;pointer-events:none}
+.audit-sw path{fill:none;stroke:var(--blue);stroke-width:26;stroke-linecap:round;opacity:.38}
+.audit-c,.audit-p{position:relative}
+.audit-c{flex:999 1 440px;min-width:0;display:flex;flex-direction:column;gap:18px}
 .audit .sticker{align-self:flex-start}
-.audit h3{margin:0;font-size:clamp(48px,6vw,96px)}
-.audit p{margin:0;max-width:560px;font-size:18px;font-weight:500}
+.audit h3{margin:0;font-size:clamp(52px,6.4vw,104px)}
+.audit h3 em{font-style:normal;color:var(--pale)}
+.audit p{margin:0;max-width:560px;font-size:clamp(17px,1.5vw,20px);font-weight:500;color:#C7C9D6}
+.steps{margin:6px 0 0;padding:0;list-style:none;display:flex;flex-direction:column;gap:12px}
+.steps li{display:flex;align-items:center;gap:14px;font-weight:600;font-size:16px}
+.steps b{flex:none;display:inline-flex;width:34px;height:34px;border-radius:50%;background:var(--blue);align-items:center;justify-content:center;font-family:var(--display);font-size:18px}
+.audit-p{flex:1 1 260px;display:flex;flex-direction:column;align-items:flex-start;gap:12px}
+.audit-p .eyebrow{color:var(--pale)}
+.zero{font-family:var(--display);font-stretch:75%;font-weight:800;font-size:clamp(150px,17vw,260px);line-height:.8;color:var(--white);letter-spacing:-.02em}
+.btn-white{background:var(--white);color:var(--ink);padding:5px 5px 5px 20px;font-size:16px;margin-top:8px}
+.btn-white .dot{display:inline-flex;width:36px;height:36px;border-radius:50%;background:var(--blue);color:var(--white);align-items:center;justify-content:center}
+.btn-white:hover .dot{transform:rotate(45deg)}
+.audit-p small{font-size:13px;color:#A7AABB}
 
 /* ---------- sister brand ---------- */
 .sister{padding-block:clamp(88px,10vw,140px) 0}
@@ -687,6 +701,22 @@ dialog.player::backdrop{background:rgba(11,13,23,.86)}
     </div>
     <p class="pr-note">Plans show your place, your products and your team. Want a creator in the reels too? <a href="#addons">Add one from ₹10,000 a month.</a></p>
 
+    <div class="audit rv" id="audit">
+      <svg class="audit-sw" viewBox="0 0 600 300" preserveAspectRatio="none" aria-hidden="true"><path d="M-20 240 C 120 60, 260 300, 330 170 C 390 60, 300 20, 270 90 C 230 190, 470 260, 620 80"/></svg>
+      <div class="audit-c">
+        <span class="sticker blue" style="--r:-4deg">Start here · it’s free</span>
+        <h3 class="disp">Not sure where<br>to <em>start?</em></h3>
+        <p>Get a free Instagram audit. Send us your page and we’ll tell you what’s working, what isn’t, and which plan fits your business.</p>
+        <ol class="steps"><li><b>1</b><span>Send us your Instagram on WhatsApp</span></li><li><b>2</b><span>We go through your page, post by post</span></li><li><b>3</b><span>You get clear fixes and the right plan</span></li></ol>
+      </div>
+      <div class="audit-p">
+        <span class="eyebrow">Instagram audit</span>
+        <span class="zero"><span class="rs">₹</span>0</span>
+        <a class="btn btn-white" href="https://wa.me/918105858648?text=Hi%20Nikhaar%20Ads%2C%20I%27d%20like%20a%20free%20Instagram%20audit.%20My%20page%20is%3A%20" target="_blank" rel="noopener">Get my free audit<span class="dot"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M7 17L17 7M8 7h9v9"/></svg></span></a>
+        <small>Usually back to you within a day</small>
+      </div>
+    </div>
+
     <div class="pr-sub"><h3 class="disp">Just one video?</h3><p>No plan needed. Pick a single video and we’ll make it.</p></div>
     <div class="menu">
       <div class="mi rv">
@@ -737,15 +767,6 @@ dialog.player::backdrop{background:rgba(11,13,23,.86)}
           </ul>
         </div>
       </div>
-    </div>
-
-    <div class="audit rv">
-      <div class="audit-c">
-        <span class="sticker" style="--r:-4deg">Free</span>
-        <h3 class="disp">Not sure where to start?</h3>
-        <p>Send us your Instagram. We’ll look through it and tell you what’s working, what isn’t, and which plan fits. No charge.</p>
-      </div>
-      <a class="btn btn-dark" href="https://wa.me/918105858648?text=Hi%20Nikhaar%20Ads%2C%20I%27d%20like%20a%20free%20Instagram%20audit.%20My%20page%20is%3A%20" target="_blank" rel="noopener">Get a free Instagram audit<span class="dot"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M7 17L17 7M8 7h9v9"/></svg></span></a>
     </div>
   </div>
 </section>
