@@ -187,9 +187,9 @@ button{font:inherit;color:inherit}
 .ai-points div{display:flex;flex-direction:column;gap:4px;padding-top:14px;border-top:2px solid #2A2D3D}
 .ai-points strong{font-size:17px}
 .ai-points span{font-size:15px;color:#A7AABB}
-.phone{flex:1 1 380px;display:flex;justify-content:center;align-items:flex-end;gap:16px}
-.phone .frame:nth-child(2){margin-bottom:48px}
-.phone .frame{position:relative;width:min(48%,260px);aspect-ratio:9/16;max-width:100%;border-radius:30px;overflow:hidden;border:6px solid #23263A;background:#000;cursor:pointer;padding:0}
+.phone{flex:1 1 560px;display:flex;justify-content:center;align-items:flex-end;gap:14px}
+.phone .frame:nth-child(2){margin-bottom:48px;width:min(37%,270px)}
+.phone .frame{position:relative;width:min(30%,220px);aspect-ratio:9/16;max-width:100%;border-radius:30px;overflow:hidden;border:6px solid #23263A;background:#000;cursor:pointer;padding:0}
 .phone video,.phone img{position:absolute;inset:0;width:100%;height:100%;object-fit:cover}
 .phone .sound{position:absolute;right:12px;bottom:12px;background:var(--white);color:var(--ink);font-size:12px;font-weight:700;padding:6px 11px;border-radius:999px}
 
@@ -408,7 +408,13 @@ dialog.player::backdrop{background:rgba(11,13,23,.86)}
   .path-wrap svg{display:none}
   .path-wrap{gap:28px}
   .svc,.svc.r,.svc.l,.svc.c{align-self:stretch;text-align:left;margin:0;padding:0 0 22px;border-bottom:2px solid var(--line);border-radius:0}
-  .phone .frame:nth-child(2){margin-bottom:28px}
+  .phone .frame:nth-child(2){margin-bottom:22px}
+  .phone{gap:8px}
+  .phone .frame{border-width:4px;border-radius:20px}
+  .phone .sound{font-size:10px;padding:4px 8px;right:6px;bottom:6px;white-space:nowrap}
+  .phone .frame{width:30%}
+  .phone .frame:nth-child(2){width:38%}
+  .phone .frame:not(:nth-child(2)) .sound{display:none}
   .stack{min-height:380px}
   .person .ph{aspect-ratio:1/1}
   .cols div[style]{text-align:left}
@@ -635,6 +641,10 @@ dialog.player::backdrop{background:rgba(11,13,23,.86)}
         <button class="frame" type="button" data-play="ai-vfx" aria-label="Play the AI VFX before and after reel with sound">
           <video data-src="assets/v/ai-vfx-loop.mp4" poster="assets/p/ai-vfx.jpg" muted loop playsinline preload="none"></video>
           <span class="sound">Before / after</span>
+        </button>
+        <button class="frame" type="button" data-play="arjuna-vfx" aria-label="Play The Missing Arjuna AI VFX breakdown with sound">
+          <video data-src="assets/v/arjuna-vfx-loop.mp4" poster="assets/p/arjuna-vfx.jpg" muted loop playsinline preload="none"></video>
+          <span class="sound">VFX breakdown</span>
         </button>
         <button class="frame" type="button" data-play="ai-shots" aria-label="Play the AI film with sound">
           <video data-src="assets/v/ai-shots-loop.mp4" poster="assets/p/ai-shots.jpg" muted loop playsinline preload="none"></video>
@@ -871,6 +881,7 @@ dialog.player::backdrop{background:rgba(11,13,23,.86)}
   var FILMS={
     'ai-vfx':{title:'AI VFX · Before & after',full:true},
     'ai-shots':{title:'AI film · Every shot made with AI',full:true},
+    'arjuna-vfx':{title:'The Missing Arjuna · AI VFX breakdown',full:true},
     'atomberg':{title:'Atomberg · Influencer campaign',full:true},
     'oho':{title:'OHO Snacks · Launch film',full:true},
     'gani':{title:'Gani Furniture Mall · Maa Deserves Better',full:true},
