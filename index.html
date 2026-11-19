@@ -208,6 +208,18 @@ button{font:inherit;color:inherit}
 .stack .s2{transform:rotate(7deg) translateX(34%)}
 .stack .s3{position:relative;z-index:2}
 
+.hc-head{display:flex;justify-content:space-between;align-items:baseline;margin:28px 4px 14px}
+.hc-hint{font-size:13px;font-weight:600;color:var(--muted);display:none}
+.hc-row{display:flex;gap:14px;overflow-x:auto;scroll-snap-type:x mandatory;padding-bottom:6px;scrollbar-width:none}
+.hc-row::-webkit-scrollbar{display:none}
+.hc{position:relative;flex:none;height:clamp(260px,23.5vw,340px);aspect-ratio:9/16;border-radius:22px;overflow:hidden;border:0;padding:0;background:var(--ink);cursor:pointer;scroll-snap-align:start}
+.hc.wide{aspect-ratio:16/9}
+.hc video,.hc img{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;transition:transform .6s cubic-bezier(.2,.8,.2,1)}
+.hc:hover video{transform:scale(1.04)}
+.hc .lbl{position:absolute;left:12px;bottom:12px;font-size:12px;font-weight:700;padding:6px 11px;border-radius:999px;background:var(--white);color:var(--ink)}
+.hc .pl{position:absolute;right:12px;bottom:12px;width:34px;height:34px;border-radius:50%;background:var(--blue);color:#fff;display:flex;align-items:center;justify-content:center}
+@media (max-width:1100px){.hc-hint{display:inline}}
+
 /* ---------- pricing ---------- */
 .pricing{padding-block:clamp(110px,12vw,170px) 0}
 .rs{font-family:var(--body);font-stretch:100%;font-weight:600;font-size:.56em;vertical-align:.42em;margin-right:.06em;letter-spacing:0}
@@ -692,10 +704,17 @@ dialog.player::backdrop{background:rgba(11,13,23,.86)}
         <ul><li>Content calendar</li><li>Shoots &amp; reels</li><li>Social ads</li><li>Captions &amp; posting</li></ul>
       </div>
       <div class="stack">
-        <button class="s s1" type="button" data-play="cakes-2" aria-label="Play the Happy Cakes chocolate reel"><img src="assets/p/cakes-2.jpg" alt="" loading="lazy"></button>
-        <button class="s s2" type="button" data-play="cakes-ad" aria-label="Play the Happy Cakes Teachers’ Day film"><img src="assets/p/cakes-ad-b.jpg" alt="" loading="lazy"></button>
-        <button class="s s3" type="button" data-play="cakes-1" aria-label="Play the Happy Cakes Biscoff reel"><video data-src="assets/v/cakes-1-loop.mp4" poster="assets/p/cakes-1.jpg" muted loop playsinline preload="none"></video></button>
+        <button class="s s1" type="button" data-play="cakes-wedding" aria-label="Play the Happy Cakes wedding-ready reel"><img src="assets/p/cakes-wedding.jpg" alt="" loading="lazy"></button>
+        <button class="s s2" type="button" data-play="cakes-show" aria-label="Play the Happy Cakes cake showcase reel"><img src="assets/p/cakes-show.jpg" alt="" loading="lazy"></button>
+        <button class="s s3" type="button" data-play="cakes-cday" aria-label="Play the Happy Cakes Children’s Day film"><video data-src="assets/v/cakes-cday-loop.mp4" poster="assets/p/cakes-cday.jpg" muted loop playsinline preload="none"></video></button>
       </div>
+    </div>
+    <div class="hc-head"><span class="eyebrow">More from the Happy Cakes feed</span><span class="hc-hint">Swipe →</span></div>
+    <div class="hc-row">
+      <button class="hc wide" type="button" data-play="cakes-love" aria-label="Play LOVE · brand film"><video data-src="assets/v/cakes-love-loop.mp4" poster="assets/p/cakes-love.jpg" muted loop playsinline preload="none"></video><span class="lbl">LOVE · brand film</span><span class="pl" aria-hidden="true"><svg width="14" height="14" viewBox="0 0 24 24"><path d="M7 4l13 8-13 8z" fill="currentColor"/></svg></span></button>
+      <button class="hc" type="button" data-play="cakes-ad" aria-label="Play Teachers’ Day film"><video data-src="assets/v/cakes-ad-loop.mp4" poster="assets/p/cakes-ad-b.jpg" muted loop playsinline preload="none"></video><span class="lbl">Teachers’ Day film</span><span class="pl" aria-hidden="true"><svg width="14" height="14" viewBox="0 0 24 24"><path d="M7 4l13 8-13 8z" fill="currentColor"/></svg></span></button>
+      <button class="hc" type="button" data-play="cakes-1" aria-label="Play Biscoff reel"><video data-src="assets/v/cakes-1-loop.mp4" poster="assets/p/cakes-1.jpg" muted loop playsinline preload="none"></video><span class="lbl">Biscoff reel</span><span class="pl" aria-hidden="true"><svg width="14" height="14" viewBox="0 0 24 24"><path d="M7 4l13 8-13 8z" fill="currentColor"/></svg></span></button>
+      <button class="hc" type="button" data-play="cakes-2" aria-label="Play Chocolate reel"><video data-src="assets/v/cakes-2-loop.mp4" poster="assets/p/cakes-2.jpg" muted loop playsinline preload="none"></video><span class="lbl">Chocolate reel</span><span class="pl" aria-hidden="true"><svg width="14" height="14" viewBox="0 0 24 24"><path d="M7 4l13 8-13 8z" fill="currentColor"/></svg></span></button>
     </div>
   </div>
 </section>
@@ -935,6 +954,10 @@ dialog.player::backdrop{background:rgba(11,13,23,.86)}
     'cakes-1':{title:'Happy Cakes · Biscoff reel',full:true},
     'cakes-2':{title:'Happy Cakes · Chocolate reel',full:true},
     'cakes-ad':{title:'Happy Cakes · Our first teacher',full:true},
+    'cakes-cday':{title:'Happy Cakes · Children’s Day',full:true},
+    'cakes-wedding':{title:'Happy Cakes · Wedding ready',full:true},
+    'cakes-show':{title:'Happy Cakes · Cake showcase',full:true},
+    'cakes-love':{title:'Happy Cakes · LOVE',full:true},
     'navi':{title:'Navi UPI · Brand film',full:true},
     'star-sports':{title:'Star Sports · India vs West Indies',full:true},
     'police':{title:'Vijayapura Police · Cyber crime awareness',full:true}
