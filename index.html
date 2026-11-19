@@ -132,12 +132,6 @@ button{font:inherit;color:inherit}
 .fpill img,.fpill .ini{width:42px;height:42px;border-radius:50%;object-fit:cover;object-position:50% 20%}
 .fpill .ini{display:inline-flex;align-items:center;justify-content:center;background:var(--line);font-weight:800}
 
-/* ---------- strip ---------- */
-.strip{overflow:hidden;padding-block:8px}
-.strip .marq{gap:14px;animation-duration:70s}
-.strip .tile{height:clamp(210px,24vw,340px);aspect-ratio:3/4;border-radius:22px;overflow:hidden;background:var(--line);position:relative}
-.strip .tile.wide{aspect-ratio:16/9}
-.strip .tile img,.strip .tile video{width:100%;height:100%;object-fit:cover}
 
 /* ---------- work ---------- */
 .work{padding-block:clamp(100px,10vw,150px) 0}
@@ -220,22 +214,37 @@ button{font:inherit;color:inherit}
 .hc .pl{position:absolute;right:12px;bottom:12px;width:34px;height:34px;border-radius:50%;background:var(--blue);color:#fff;display:flex;align-items:center;justify-content:center}
 @media (max-width:1100px){.hc-hint{display:inline}}
 
-.cars{display:grid;grid-template-columns:repeat(auto-fit,minmax(min(100%,340px),420px));gap:16px}
-.car{background:var(--white);border-radius:24px;padding:10px;display:flex;flex-direction:column;gap:12px}
-.car-view{position:relative;border-radius:16px;overflow:hidden;aspect-ratio:4/5;background:var(--line)}
+.posts{display:grid;gap:22px;margin-top:64px}
+@media (min-width:980px){.posts{grid-template-columns:minmax(220px,1fr) minmax(0,2.6fr);gap:clamp(28px,4vw,64px);align-items:center}}
+.posts-copy{display:flex;flex-direction:column;gap:14px;align-items:flex-start}
+.posts-copy h3{margin:0;font-size:clamp(34px,3.6vw,54px);line-height:.95;color:var(--blue)}
+.posts-copy p{margin:0;font-size:16px;line-height:1.5;color:var(--muted);max-width:34ch}
+.posts-copy .tip{font-size:13px;font-weight:700;padding:6px 12px;border-radius:999px;background:var(--white)}
+.cars{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:12px}
+.car{background:var(--white);border-radius:20px;padding:8px;display:flex;flex-direction:column;gap:10px;min-width:0}
+.car-view{position:relative;border-radius:13px;overflow:hidden;aspect-ratio:4/5;background:var(--line)}
 .car-track{display:flex;height:100%;overflow-x:auto;scroll-snap-type:x mandatory;scrollbar-width:none;scroll-behavior:smooth}
 .car-track::-webkit-scrollbar{display:none}
-.car-track img{flex:none;width:100%;height:100%;object-fit:cover;scroll-snap-align:start}
-.car-n{position:absolute;right:12px;bottom:12px;font-size:12px;font-weight:700;padding:5px 10px;border-radius:999px;background:rgba(11,13,23,.7);color:#fff}
-.car-b{position:absolute;top:50%;margin-top:-20px;width:40px;height:40px;border-radius:50%;border:0;background:rgba(255,255,255,.92);color:var(--ink);font-size:24px;line-height:1;cursor:pointer;display:flex;align-items:center;justify-content:center;box-shadow:0 4px 14px rgba(0,0,0,.18)}
-.car-b.prev{left:10px}.car-b.next{right:10px}
+.car-track img{flex:none;width:100%;height:100%;object-fit:cover;scroll-snap-align:start;cursor:zoom-in}
+.car-n{position:absolute;right:8px;bottom:8px;font-size:11px;font-weight:700;padding:4px 8px;border-radius:999px;background:rgba(11,13,23,.7);color:#fff;pointer-events:none}
+.car-b{position:absolute;top:50%;margin-top:-16px;width:32px;height:32px;border-radius:50%;border:0;background:rgba(255,255,255,.92);color:var(--ink);font-size:20px;line-height:1;cursor:pointer;display:flex;align-items:center;justify-content:center;box-shadow:0 3px 10px rgba(0,0,0,.18)}
+.car-b.prev{left:8px}.car-b.next{right:8px}
 .car-b[disabled]{opacity:0;pointer-events:none}
-.car-meta{display:flex;justify-content:space-between;align-items:center;gap:12px;padding:2px 8px 6px}
-.car-meta b{display:block;font-size:16px}
-.car-meta span{display:block;font-size:13px;color:var(--muted)}
-.car-dots{display:flex;gap:5px;flex:none}
-.car-dots i{width:7px;height:7px;border-radius:50%;background:var(--line)}
+.car-meta{display:flex;justify-content:space-between;align-items:center;gap:8px;padding:0 6px 4px;min-width:0}
+.car-meta>div:first-child{min-width:0}
+.car-meta b{display:block;font-size:14px;line-height:1.25}
+.car-meta span{display:block;font-size:12px;color:var(--muted);line-height:1.35}
+.car-dots{display:flex;gap:4px;flex:none}
+.car-dots i{width:6px;height:6px;border-radius:50%;background:var(--line)}
 .car-dots i.on{background:var(--blue)}
+dialog.lb{border:0;padding:0;background:transparent;width:min(92vw,560px);max-height:94vh;overflow:visible}
+dialog.lb::backdrop{background:rgba(11,13,23,.9)}
+.lb-view{position:relative;border-radius:18px;overflow:hidden;aspect-ratio:4/5;max-height:82vh;margin-inline:auto;background:#000}
+.lb .car-track img{cursor:default}
+.lb .car-b{width:44px;height:44px;margin-top:-22px;font-size:26px}
+.lb .car-n{font-size:13px;right:12px;bottom:12px;padding:5px 11px}
+.lb-cap{color:#fff;font-weight:600;text-align:center;margin-top:12px}
+.lb .x{position:absolute;top:-54px;right:0;width:44px;height:44px;border-radius:50%;border:0;background:var(--white);color:var(--ink);cursor:pointer;font-size:22px;font-weight:700}
 
 /* ---------- pricing ---------- */
 .pricing{padding-block:clamp(110px,12vw,170px) 0}
@@ -480,6 +489,14 @@ dialog.player::backdrop{background:rgba(11,13,23,.86)}
   .mi-p{align-items:flex-start}
   .extras{gap:56px}
   .sister{padding-block:64px 0}
+  .cars{gap:7px}
+  .car{padding:4px;border-radius:13px;gap:6px}
+  .car-view{border-radius:10px}
+  .cars .car-b,.cars .car-dots,.car-meta span{display:none}
+  .car-n{font-size:9px;padding:2px 6px;right:5px;bottom:5px}
+  .car-meta{padding:0 3px 2px}
+  .car-meta b{font-size:11px}
+  .posts{margin-top:44px}
 }
 
 @media (prefers-reduced-motion:reduce){
@@ -516,7 +533,7 @@ dialog.player::backdrop{background:rgba(11,13,23,.86)}
 <header class="top">
   <div class="wrap">
     <nav class="navpills" aria-label="Main">
-      <a href="#work">Work</a><a href="#services">Services</a><a href="#pricing">Pricing</a>
+      <a href="#work">Work</a><a href="#ai">AI Studio</a><a href="#services">Services</a><a href="#pricing">Pricing</a>
     </nav>
     <a class="logo" href="#top" aria-label="Nikhaar Ads home"><img src="assets/img/logo-blue-sm.png" alt="Nikhaar" width="520" height="146"></a>
     <div class="top-r">
@@ -529,6 +546,7 @@ dialog.player::backdrop{background:rgba(11,13,23,.86)}
 <nav class="mnav" id="mnav" hidden aria-label="Menu">
   <button class="close" type="button" id="menuClose" aria-label="Close menu">✕</button>
   <a class="disp" href="#work">Work</a>
+  <a class="disp" href="#ai">AI Studio</a>
   <a class="disp" href="#services">Services</a>
   <a class="disp" href="#pricing">Pricing</a>
   <a class="disp" href="#about">About us</a>
@@ -587,32 +605,6 @@ dialog.player::backdrop{background:rgba(11,13,23,.86)}
   </div>
 </section>
 
-<!-- STRIP -->
-<section class="strip" aria-label="Stills from our films">
-  <div class="marq" id="strip">
-    <div class="tile wide"><img src="assets/p/navi-b.jpg" alt="" loading="lazy"></div>
-    <div class="tile "><img src="assets/p/star-sports-b.jpg" alt="" loading="lazy"></div>
-    <div class="tile "><img src="assets/p/ai-shots-b.jpg" alt="" loading="lazy"></div>
-    <div class="tile "><img src="assets/p/gani.jpg" alt="" loading="lazy"></div>
-    <div class="tile "><img src="assets/p/cakes-2.jpg" alt="" loading="lazy"></div>
-    <div class="tile "><img src="assets/p/police.jpg" alt="" loading="lazy"></div>
-    <div class="tile "><img src="assets/p/parekh-b.jpg" alt="" loading="lazy"></div>
-    <div class="tile "><img src="assets/p/cakes-ad-b.jpg" alt="" loading="lazy"></div>
-    <div class="tile "><img src="assets/p/oho.jpg" alt="" loading="lazy"></div>
-    <div class="tile "><img src="assets/p/atomberg-b.jpg" alt="" loading="lazy"></div>
-    <div class="tile wide"><img src="assets/p/navi-b.jpg" alt="" loading="lazy"></div>
-    <div class="tile "><img src="assets/p/star-sports-b.jpg" alt="" loading="lazy"></div>
-    <div class="tile "><img src="assets/p/ai-shots-b.jpg" alt="" loading="lazy"></div>
-    <div class="tile "><img src="assets/p/gani.jpg" alt="" loading="lazy"></div>
-    <div class="tile "><img src="assets/p/cakes-2.jpg" alt="" loading="lazy"></div>
-    <div class="tile "><img src="assets/p/police.jpg" alt="" loading="lazy"></div>
-    <div class="tile "><img src="assets/p/parekh-b.jpg" alt="" loading="lazy"></div>
-    <div class="tile "><img src="assets/p/cakes-ad-b.jpg" alt="" loading="lazy"></div>
-    <div class="tile "><img src="assets/p/oho.jpg" alt="" loading="lazy"></div>
-    <div class="tile "><img src="assets/p/atomberg-b.jpg" alt="" loading="lazy"></div>
-  </div>
-</section>
-
 <!-- WORK -->
 <section class="work" id="work">
   <div class="wrap">
@@ -651,29 +643,65 @@ dialog.player::backdrop{background:rgba(11,13,23,.86)}
         <div class="meta"><span class="badge logo-b fill" aria-hidden="true"><img src="assets/img/clients/b-happycakes.png" alt="" width="128" height="128"></span><div class="t"><h3 class="disp">Happy Cakes</h3><span class="tag">Teachers’ Day film · “Our first teacher”</span></div><button class="arrow" type="button" data-play="cakes-ad" aria-label="Play the Happy Cakes film"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M7 17L17 7M8 7h9v9"/></svg></button></div>
       </article>
     </div>
+  </div>
+</section>
+
+<!-- CASE STUDY -->
+<section class="case" id="case">
+  <div class="wrap">
+    <div class="sec-head"><span class="eyebrow">Now running</span><h2 class="disp">Every month,<br>on repeat</h2></div>
+    <div class="case-box rv">
+      <div class="case-copy">
+        <span class="tagp">Monthly content plan · Happy Cakes</span>
+        <p class="big">Fresh reels every week, without Happy Cakes lifting a camera. We plan it, shoot it, edit it and post it.</p>
+        <ul><li>Content calendar</li><li>Shoots &amp; reels</li><li>Social ads</li><li>Captions &amp; posting</li></ul>
+      </div>
+      <div class="stack">
+        <button class="s s1" type="button" data-play="cakes-wedding" aria-label="Play the Happy Cakes wedding-ready reel"><img src="assets/p/cakes-wedding.jpg" alt="" loading="lazy"></button>
+        <button class="s s2" type="button" data-play="cakes-show" aria-label="Play the Happy Cakes cake showcase reel"><img src="assets/p/cakes-show.jpg" alt="" loading="lazy"></button>
+        <button class="s s3" type="button" data-play="cakes-cday" aria-label="Play the Happy Cakes Children’s Day film"><video data-src="assets/v/cakes-cday-loop.mp4" poster="assets/p/cakes-cday.jpg" muted loop playsinline preload="none"></video></button>
+      </div>
+    </div>
+    <div class="hc-head"><span class="eyebrow">More from the Happy Cakes feed</span><span class="hc-hint">Swipe →</span></div>
+    <div class="hc-row">
+      <button class="hc wide" type="button" data-play="cakes-love" aria-label="Play LOVE · brand film"><video data-src="assets/v/cakes-love-loop.mp4" poster="assets/p/cakes-love.jpg" muted loop playsinline preload="none"></video><span class="lbl">LOVE · brand film</span><span class="pl" aria-hidden="true"><svg width="14" height="14" viewBox="0 0 24 24"><path d="M7 4l13 8-13 8z" fill="currentColor"/></svg></span></button>
+      <button class="hc" type="button" data-play="cakes-ad" aria-label="Play Teachers’ Day film"><video data-src="assets/v/cakes-ad-loop.mp4" poster="assets/p/cakes-ad-b.jpg" muted loop playsinline preload="none"></video><span class="lbl">Teachers’ Day film</span><span class="pl" aria-hidden="true"><svg width="14" height="14" viewBox="0 0 24 24"><path d="M7 4l13 8-13 8z" fill="currentColor"/></svg></span></button>
+      <button class="hc" type="button" data-play="cakes-1" aria-label="Play Biscoff reel"><video data-src="assets/v/cakes-1-loop.mp4" poster="assets/p/cakes-1.jpg" muted loop playsinline preload="none"></video><span class="lbl">Biscoff reel</span><span class="pl" aria-hidden="true"><svg width="14" height="14" viewBox="0 0 24 24"><path d="M7 4l13 8-13 8z" fill="currentColor"/></svg></span></button>
+      <button class="hc" type="button" data-play="cakes-2" aria-label="Play Chocolate reel"><video data-src="assets/v/cakes-2-loop.mp4" poster="assets/p/cakes-2.jpg" muted loop playsinline preload="none"></video><span class="lbl">Chocolate reel</span><span class="pl" aria-hidden="true"><svg width="14" height="14" viewBox="0 0 24 24"><path d="M7 4l13 8-13 8z" fill="currentColor"/></svg></span></button>
+    </div>
+    <div class="posts">
+    <div class="posts-copy rv">
+      <span class="eyebrow">Carousels &amp; trending posts</span>
+      <h3 class="disp">Posts that ride the moment</h3>
+      <p>Product carousels, festival stories and trend posts, designed and posted while people are still talking about it.</p>
+      <span class="tip">Tap a post to see it big</span>
+    </div>
+    <div class="cars">
+      <div class="car rv" id="car-cakes">
+        <div class="car-view"><div class="car-track"><img src="assets/img/posts/cake-1.jpg" alt="Chocolate chip cake being topped with a cherry" loading="lazy" width="1080" height="1350"><img src="assets/img/posts/cake-2.jpg" alt="Pistachio almond cake" loading="lazy" width="1080" height="1350"><img src="assets/img/posts/cake-3.jpg" alt="White forest cake with cherries" loading="lazy" width="1080" height="1350"><img src="assets/img/posts/cake-4.jpg" alt="Butterscotch almond cake" loading="lazy" width="1080" height="1350"><img src="assets/img/posts/cake-5.jpg" alt="Black and white chocolate cake" loading="lazy" width="1080" height="1350"></div>
+          <span class="car-n">1/5</span>
+          <button class="car-b prev" type="button" aria-label="Previous slide">‹</button><button class="car-b next" type="button" aria-label="Next slide">›</button></div>
+        <div class="car-meta"><div><b>Cake carousel</b><span>Studio product shots · 5 slides</span></div><div class="car-dots"><i class=on></i><i></i><i></i><i></i><i></i></div></div>
+      </div>
+      <div class="car rv" id="car-gta">
+        <div class="car-view"><div class="car-track"><img src="assets/img/posts/gta-1.jpg" alt="What if Happy Cakes was in GTA VI?" loading="lazy" width="1080" height="1350"><img src="assets/img/posts/gta-2.jpg" alt="Planning the sweetest heist" loading="lazy" width="1080" height="1350"><img src="assets/img/posts/gta-3.jpg" alt="Precious cargo. Handle with cravings" loading="lazy" width="1080" height="1350"></div>
+          <span class="car-n">1/3</span>
+          <button class="car-b prev" type="button" aria-label="Previous slide">‹</button><button class="car-b next" type="button" aria-label="Next slide">›</button></div>
+        <div class="car-meta"><div><b>GTA VI trend</b><span>Posted while the trend was hot · 3 slides</span></div><div class="car-dots"><i class=on></i><i></i><i></i></div></div>
+      </div>
+      <div class="car rv" id="car-men">
+        <div class="car-view"><div class="car-track"><img src="assets/img/posts/men-1.jpg" alt="Happy “main sambhaal lunga” day" loading="lazy" width="1080" height="1350"><img src="assets/img/posts/men-2.jpg" alt="Happy “sab theek hai, Maa” day" loading="lazy" width="1080" height="1350"><img src="assets/img/posts/men-4.jpg" alt="Happy “mere liye kuch mat lena” day" loading="lazy" width="1080" height="1350"><img src="assets/img/posts/men-5.jpg" alt="Happy “tum khush ho na?” day" loading="lazy" width="1080" height="1350"><img src="assets/img/posts/men-6.jpg" alt="Aaj unke liye bhi kuch meetha ho jaaye. Happy International Men’s Day" loading="lazy" width="1080" height="1350"></div>
+          <span class="car-n">1/5</span>
+          <button class="car-b prev" type="button" aria-label="Previous slide">‹</button><button class="car-b next" type="button" aria-label="Next slide">›</button></div>
+        <div class="car-meta"><div><b>International Men’s Day</b><span>A story told in slides · 5 slides</span></div><div class="car-dots"><i class=on></i><i></i><i></i><i></i><i></i></div></div>
+      </div>
+    </div>
+    </div>
     <div class="more">
       <h2 class="disp">We could keep going,<br>but there’s a whole<br>showreel for that.</h2>
       <span class="sticker" style="--r:-7deg;left:12%;top:52%">Grab some popcorn</span>
       <span class="sticker" style="--r:5deg;right:10%;top:36%;animation-delay:-2s">No skip button</span>
       <a class="btn btn-dark" href="https://www.instagram.com/nikhaar.ads/" target="_blank" rel="noopener">See more on Instagram<span class="dot"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="#fff" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M7 17L17 7M8 7h9v9"/></svg></span></a>
-    </div>
-  </div>
-</section>
-
-<!-- SERVICES -->
-<section class="services" id="services">
-  <div class="wrap">
-    <div class="sec-head"><span class="eyebrow">Our services</span><h2 class="disp">This is<br>our thing</h2></div>
-    <div class="path-wrap" id="pathWrap">
-      <svg viewBox="0 0 1000 1000" preserveAspectRatio="none" aria-hidden="true">
-        <path vector-effect="non-scaling-stroke" d="M980 20 C 700 40, 560 120, 640 200 C 720 280, 300 240, 200 330 C 80 440, 520 470, 520 560 C 520 650, 120 640, 160 740 C 200 840, 760 800, 820 900 C 850 950, 700 990, 600 990"/>
-        <path class="ink" id="inkPath" pathLength="1" vector-effect="non-scaling-stroke" d="M980 20 C 700 40, 560 120, 640 200 C 720 280, 300 240, 200 330 C 80 440, 520 470, 520 560 C 520 650, 120 640, 160 740 C 200 840, 760 800, 820 900 C 850 950, 700 990, 600 990"/>
-      </svg>
-      <div class="svc r"><h3 class="disp">Ad films</h3><p>Brand films and product ads that tell a story, not a sales pitch.</p></div>
-      <div class="svc l"><h3 class="disp">Influencer campaigns</h3><p>From casting the creator to the final cut, handled end to end.</p></div>
-      <div class="svc c"><h3 class="disp">Instagram, every month</h3><p>Reels, posters, captions and posting. Your page never goes quiet.</p></div>
-      <div class="svc l"><h3 class="disp">AI VFX &amp; AI shots</h3><p>Stadiums, hospitals and whole worlds, without a big set or budget.</p></div>
-      <div class="svc r"><h3 class="disp">Regional versions</h3><p>One campaign in Kannada, Hindi and English, made to feel local.</p></div>
     </div>
   </div>
 </section>
@@ -710,53 +738,23 @@ dialog.player::backdrop{background:rgba(11,13,23,.86)}
   </div>
 </section>
 
-<!-- CASE STUDY -->
-<section class="case" id="case">
+<!-- SERVICES -->
+<section class="services" id="services">
   <div class="wrap">
-    <div class="sec-head"><span class="eyebrow">Now running</span><h2 class="disp">Every month,<br>on repeat</h2></div>
-    <div class="case-box rv">
-      <div class="case-copy">
-        <span class="tagp">Monthly content plan · Happy Cakes</span>
-        <p class="big">Fresh reels every week, without Happy Cakes lifting a camera. We plan it, shoot it, edit it and post it.</p>
-        <ul><li>Content calendar</li><li>Shoots &amp; reels</li><li>Social ads</li><li>Captions &amp; posting</li></ul>
-      </div>
-      <div class="stack">
-        <button class="s s1" type="button" data-play="cakes-wedding" aria-label="Play the Happy Cakes wedding-ready reel"><img src="assets/p/cakes-wedding.jpg" alt="" loading="lazy"></button>
-        <button class="s s2" type="button" data-play="cakes-show" aria-label="Play the Happy Cakes cake showcase reel"><img src="assets/p/cakes-show.jpg" alt="" loading="lazy"></button>
-        <button class="s s3" type="button" data-play="cakes-cday" aria-label="Play the Happy Cakes Children’s Day film"><video data-src="assets/v/cakes-cday-loop.mp4" poster="assets/p/cakes-cday.jpg" muted loop playsinline preload="none"></video></button>
-      </div>
-    </div>
-    <div class="hc-head"><span class="eyebrow">More from the Happy Cakes feed</span><span class="hc-hint">Swipe →</span></div>
-    <div class="hc-row">
-      <button class="hc wide" type="button" data-play="cakes-love" aria-label="Play LOVE · brand film"><video data-src="assets/v/cakes-love-loop.mp4" poster="assets/p/cakes-love.jpg" muted loop playsinline preload="none"></video><span class="lbl">LOVE · brand film</span><span class="pl" aria-hidden="true"><svg width="14" height="14" viewBox="0 0 24 24"><path d="M7 4l13 8-13 8z" fill="currentColor"/></svg></span></button>
-      <button class="hc" type="button" data-play="cakes-ad" aria-label="Play Teachers’ Day film"><video data-src="assets/v/cakes-ad-loop.mp4" poster="assets/p/cakes-ad-b.jpg" muted loop playsinline preload="none"></video><span class="lbl">Teachers’ Day film</span><span class="pl" aria-hidden="true"><svg width="14" height="14" viewBox="0 0 24 24"><path d="M7 4l13 8-13 8z" fill="currentColor"/></svg></span></button>
-      <button class="hc" type="button" data-play="cakes-1" aria-label="Play Biscoff reel"><video data-src="assets/v/cakes-1-loop.mp4" poster="assets/p/cakes-1.jpg" muted loop playsinline preload="none"></video><span class="lbl">Biscoff reel</span><span class="pl" aria-hidden="true"><svg width="14" height="14" viewBox="0 0 24 24"><path d="M7 4l13 8-13 8z" fill="currentColor"/></svg></span></button>
-      <button class="hc" type="button" data-play="cakes-2" aria-label="Play Chocolate reel"><video data-src="assets/v/cakes-2-loop.mp4" poster="assets/p/cakes-2.jpg" muted loop playsinline preload="none"></video><span class="lbl">Chocolate reel</span><span class="pl" aria-hidden="true"><svg width="14" height="14" viewBox="0 0 24 24"><path d="M7 4l13 8-13 8z" fill="currentColor"/></svg></span></button>
-    </div>
-    <div class="hc-head" style="margin-top:44px"><span class="eyebrow">Carousels &amp; trending posts</span><span class="hc-hint">Tap the arrows →</span></div>
-    <div class="cars">
-      <div class="car rv" id="car-cakes">
-        <div class="car-view"><div class="car-track"><img src="assets/img/posts/cake-1.jpg" alt="Chocolate chip cake being topped with a cherry" loading="lazy" width="1080" height="1350"><img src="assets/img/posts/cake-2.jpg" alt="Pistachio almond cake" loading="lazy" width="1080" height="1350"><img src="assets/img/posts/cake-3.jpg" alt="White forest cake with cherries" loading="lazy" width="1080" height="1350"><img src="assets/img/posts/cake-4.jpg" alt="Butterscotch almond cake" loading="lazy" width="1080" height="1350"><img src="assets/img/posts/cake-5.jpg" alt="Black and white chocolate cake" loading="lazy" width="1080" height="1350"></div>
-          <span class="car-n">1/5</span>
-          <button class="car-b prev" type="button" aria-label="Previous slide">‹</button><button class="car-b next" type="button" aria-label="Next slide">›</button></div>
-        <div class="car-meta"><div><b>Cake carousel</b><span>Studio product shots · 5 slides</span></div><div class="car-dots"><i class=on></i><i></i><i></i><i></i><i></i></div></div>
-      </div>
-      <div class="car rv" id="car-gta">
-        <div class="car-view"><div class="car-track"><img src="assets/img/posts/gta-1.jpg" alt="What if Happy Cakes was in GTA VI?" loading="lazy" width="1080" height="1350"><img src="assets/img/posts/gta-2.jpg" alt="Planning the sweetest heist" loading="lazy" width="1080" height="1350"><img src="assets/img/posts/gta-3.jpg" alt="Precious cargo. Handle with cravings" loading="lazy" width="1080" height="1350"></div>
-          <span class="car-n">1/3</span>
-          <button class="car-b prev" type="button" aria-label="Previous slide">‹</button><button class="car-b next" type="button" aria-label="Next slide">›</button></div>
-        <div class="car-meta"><div><b>GTA VI trend</b><span>Made and posted while the trend was hot · 3 slides</span></div><div class="car-dots"><i class=on></i><i></i><i></i></div></div>
-      </div>
-      <div class="car rv" id="car-men">
-        <div class="car-view"><div class="car-track"><img src="assets/img/posts/men-1.jpg" alt="Happy “main sambhaal lunga” day" loading="lazy" width="1080" height="1350"><img src="assets/img/posts/men-2.jpg" alt="Happy “sab theek hai, Maa” day" loading="lazy" width="1080" height="1350"><img src="assets/img/posts/men-4.jpg" alt="Happy “mere liye kuch mat lena” day" loading="lazy" width="1080" height="1350"><img src="assets/img/posts/men-5.jpg" alt="Happy “tum khush ho na?” day" loading="lazy" width="1080" height="1350"><img src="assets/img/posts/men-6.jpg" alt="Aaj unke liye bhi kuch meetha ho jaaye. Happy International Men’s Day" loading="lazy" width="1080" height="1350"></div>
-          <span class="car-n">1/5</span>
-          <button class="car-b prev" type="button" aria-label="Previous slide">‹</button><button class="car-b next" type="button" aria-label="Next slide">›</button></div>
-        <div class="car-meta"><div><b>International Men’s Day</b><span>A story told in slides · 5 slides</span></div><div class="car-dots"><i class=on></i><i></i><i></i><i></i><i></i></div></div>
-      </div>
+    <div class="sec-head"><span class="eyebrow">Our services</span><h2 class="disp">This is<br>our thing</h2></div>
+    <div class="path-wrap" id="pathWrap">
+      <svg viewBox="0 0 1000 1000" preserveAspectRatio="none" aria-hidden="true">
+        <path vector-effect="non-scaling-stroke" d="M980 20 C 700 40, 560 120, 640 200 C 720 280, 300 240, 200 330 C 80 440, 520 470, 520 560 C 520 650, 120 640, 160 740 C 200 840, 760 800, 820 900 C 850 950, 700 990, 600 990"/>
+        <path class="ink" id="inkPath" pathLength="1" vector-effect="non-scaling-stroke" d="M980 20 C 700 40, 560 120, 640 200 C 720 280, 300 240, 200 330 C 80 440, 520 470, 520 560 C 520 650, 120 640, 160 740 C 200 840, 760 800, 820 900 C 850 950, 700 990, 600 990"/>
+      </svg>
+      <div class="svc r"><h3 class="disp">Ad films</h3><p>Brand films and product ads that tell a story, not a sales pitch.</p></div>
+      <div class="svc l"><h3 class="disp">Influencer campaigns</h3><p>From casting the creator to the final cut, handled end to end.</p></div>
+      <div class="svc c"><h3 class="disp">Instagram, every month</h3><p>Reels, posters, captions and posting. Your page never goes quiet.</p></div>
+      <div class="svc l"><h3 class="disp">AI VFX &amp; AI shots</h3><p>Stadiums, hospitals and whole worlds, without a big set or budget.</p></div>
+      <div class="svc r"><h3 class="disp">Regional versions</h3><p>One campaign in Kannada, Hindi and English, made to feel local.</p></div>
     </div>
   </div>
 </section>
-
 
 <!-- PRICING -->
 <section class="pricing" id="pricing">
@@ -955,7 +953,7 @@ dialog.player::backdrop{background:rgba(11,13,23,.86)}
       <a class="btn btn-light" href="mailto:nikhaaradss@gmail.com">nikhaaradss@gmail.com</a>
     </div>
     <div class="cols">
-      <div><span class="h">Main menu</span><a href="#work">Work</a><a href="#services">Services</a><a href="#pricing">Pricing</a><a href="#about">About us</a></div>
+      <div><span class="h">Main menu</span><a href="#work">Work</a><a href="#ai">AI Studio</a><a href="#services">Services</a><a href="#pricing">Pricing</a><a href="#about">About us</a></div>
       <div><span class="h">Say hi</span><span>+91 81058 58648</span><span>nikhaaradss@gmail.com</span><a href="https://www.instagram.com/nikhaar.ads/" target="_blank" rel="noopener">Instagram ↗</a><a href="https://www.nikhaarinstantshoots.com" target="_blank" rel="noopener">Nikhaar Instant Shoots ↗</a></div>
       <div><span class="h">Studio</span><span>Vijayapura,<br>Karnataka, India</span></div>
     </div>
@@ -964,6 +962,11 @@ dialog.player::backdrop{background:rgba(11,13,23,.86)}
   </div>
 </footer>
 
+<dialog class="lb" id="lb" aria-label="Post viewer">
+  <button class="x" type="button" id="lbClose" aria-label="Close">✕</button>
+  <div class="lb-view car" style="padding:0;background:#000"><div class="car-track" id="lbTrack"></div><span class="car-n" id="lbN"></span><button class="car-b prev" type="button" aria-label="Previous slide">‹</button><button class="car-b next" type="button" aria-label="Next slide">›</button></div>
+  <div class="lb-cap" id="lbCap"></div>
+</dialog>
 <dialog class="player" id="player" aria-label="Film player">
   <div class="box">
     <button class="x" type="button" id="playerClose" aria-label="Close player">✕</button>
@@ -1071,15 +1074,29 @@ dialog.player::backdrop{background:rgba(11,13,23,.86)}
   });});
 
   // Post carousels
-  [].slice.call(document.querySelectorAll('.car')).forEach(function(c){
-    var tr=c.querySelector('.car-track'),n=tr.children.length,pv=c.querySelector('.prev'),nx=c.querySelector('.next'),cnt=c.querySelector('.car-n'),dots=[].slice.call(c.querySelectorAll('.car-dots i'));
-    function idx(){return Math.round(tr.scrollLeft/tr.clientWidth);}
-    function upd(){var i=idx();cnt.textContent=(i+1)+'/'+n;pv.disabled=i<=0;nx.disabled=i>=n-1;dots.forEach(function(d,k){d.classList.toggle('on',k===i);});}
+  function bindCar(c){
+    var tr=c.querySelector('.car-track'),pv=c.querySelector('.prev'),nx=c.querySelector('.next'),cnt=c.querySelector('.car-n'),dots=[].slice.call(c.querySelectorAll('.car-dots i'));
+    function idx(){return tr.clientWidth?Math.round(tr.scrollLeft/tr.clientWidth):0;}
+    function upd(){var i=idx(),n=tr.children.length;cnt.textContent=(i+1)+'/'+n;pv.disabled=i<=0;nx.disabled=i>=n-1;dots.forEach(function(d,k){d.classList.toggle('on',k===i);});}
     pv.addEventListener('click',function(){tr.scrollTo({left:(idx()-1)*tr.clientWidth});});
     nx.addEventListener('click',function(){tr.scrollTo({left:(idx()+1)*tr.clientWidth});});
     tr.addEventListener('scroll',function(){window.requestAnimationFrame(upd);},{passive:true});
     upd();
+    return {tr:tr,idx:idx,upd:upd};
+  }
+  [].slice.call(document.querySelectorAll('.cars .car')).forEach(bindCar);
+  // Post viewer: tap a slide to see it big
+  var lb=document.getElementById('lb'),lbc=bindCar(lb.querySelector('.lb-view')),lbCap=document.getElementById('lbCap');
+  document.addEventListener('click',function(e){
+    var im=e.target.closest('.cars .car-track img');if(!im||!lb.showModal)return;
+    var card=im.closest('.car'),imgs=[].slice.call(card.querySelectorAll('.car-track img')),i=imgs.indexOf(im);
+    lbc.tr.innerHTML='';imgs.forEach(function(x){var y=new Image();y.src=x.src;y.alt=x.alt;lbc.tr.appendChild(y);});
+    var t=card.querySelector('.car-meta b');lbCap.textContent=t?t.textContent:'';
+    lb.showModal();lbc.tr.style.scrollBehavior='auto';lbc.tr.scrollLeft=i*lbc.tr.clientWidth;lbc.tr.style.scrollBehavior='';lbc.upd();
   });
+  document.getElementById('lbClose').addEventListener('click',function(){lb.close();});
+  lb.addEventListener('click',function(e){if(e.target===lb)lb.close();});
+  lb.addEventListener('keydown',function(e){if(e.key==='ArrowRight')lb.querySelector('.next').click();if(e.key==='ArrowLeft')lb.querySelector('.prev').click();});
 
   // Film player
   var dlg=document.getElementById('player'),pv=document.getElementById('pv'),pw2=document.getElementById('pwait'),pcap=document.getElementById('pcap'),pwt=document.getElementById('pwt');
