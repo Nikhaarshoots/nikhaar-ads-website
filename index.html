@@ -220,6 +220,23 @@ button{font:inherit;color:inherit}
 .hc .pl{position:absolute;right:12px;bottom:12px;width:34px;height:34px;border-radius:50%;background:var(--blue);color:#fff;display:flex;align-items:center;justify-content:center}
 @media (max-width:1100px){.hc-hint{display:inline}}
 
+.cars{display:grid;grid-template-columns:repeat(auto-fit,minmax(min(100%,340px),420px));gap:16px}
+.car{background:var(--white);border-radius:24px;padding:10px;display:flex;flex-direction:column;gap:12px}
+.car-view{position:relative;border-radius:16px;overflow:hidden;aspect-ratio:4/5;background:var(--line)}
+.car-track{display:flex;height:100%;overflow-x:auto;scroll-snap-type:x mandatory;scrollbar-width:none;scroll-behavior:smooth}
+.car-track::-webkit-scrollbar{display:none}
+.car-track img{flex:none;width:100%;height:100%;object-fit:cover;scroll-snap-align:start}
+.car-n{position:absolute;right:12px;bottom:12px;font-size:12px;font-weight:700;padding:5px 10px;border-radius:999px;background:rgba(11,13,23,.7);color:#fff}
+.car-b{position:absolute;top:50%;margin-top:-20px;width:40px;height:40px;border-radius:50%;border:0;background:rgba(255,255,255,.92);color:var(--ink);font-size:24px;line-height:1;cursor:pointer;display:flex;align-items:center;justify-content:center;box-shadow:0 4px 14px rgba(0,0,0,.18)}
+.car-b.prev{left:10px}.car-b.next{right:10px}
+.car-b[disabled]{opacity:0;pointer-events:none}
+.car-meta{display:flex;justify-content:space-between;align-items:center;gap:12px;padding:2px 8px 6px}
+.car-meta b{display:block;font-size:16px}
+.car-meta span{display:block;font-size:13px;color:var(--muted)}
+.car-dots{display:flex;gap:5px;flex:none}
+.car-dots i{width:7px;height:7px;border-radius:50%;background:var(--line)}
+.car-dots i.on{background:var(--blue)}
+
 /* ---------- pricing ---------- */
 .pricing{padding-block:clamp(110px,12vw,170px) 0}
 .rs{font-family:var(--body);font-stretch:100%;font-weight:600;font-size:.56em;vertical-align:.42em;margin-right:.06em;letter-spacing:0}
@@ -716,6 +733,21 @@ dialog.player::backdrop{background:rgba(11,13,23,.86)}
       <button class="hc" type="button" data-play="cakes-1" aria-label="Play Biscoff reel"><video data-src="assets/v/cakes-1-loop.mp4" poster="assets/p/cakes-1.jpg" muted loop playsinline preload="none"></video><span class="lbl">Biscoff reel</span><span class="pl" aria-hidden="true"><svg width="14" height="14" viewBox="0 0 24 24"><path d="M7 4l13 8-13 8z" fill="currentColor"/></svg></span></button>
       <button class="hc" type="button" data-play="cakes-2" aria-label="Play Chocolate reel"><video data-src="assets/v/cakes-2-loop.mp4" poster="assets/p/cakes-2.jpg" muted loop playsinline preload="none"></video><span class="lbl">Chocolate reel</span><span class="pl" aria-hidden="true"><svg width="14" height="14" viewBox="0 0 24 24"><path d="M7 4l13 8-13 8z" fill="currentColor"/></svg></span></button>
     </div>
+    <div class="hc-head" style="margin-top:44px"><span class="eyebrow">Carousels &amp; trending posts</span><span class="hc-hint">Tap the arrows →</span></div>
+    <div class="cars">
+      <div class="car rv" id="car-cakes">
+        <div class="car-view"><div class="car-track"><img src="assets/img/posts/cake-1.jpg" alt="Chocolate chip cake being topped with a cherry" loading="lazy" width="1080" height="1350"><img src="assets/img/posts/cake-2.jpg" alt="Pistachio almond cake" loading="lazy" width="1080" height="1350"><img src="assets/img/posts/cake-3.jpg" alt="White forest cake with cherries" loading="lazy" width="1080" height="1350"><img src="assets/img/posts/cake-4.jpg" alt="Butterscotch almond cake" loading="lazy" width="1080" height="1350"><img src="assets/img/posts/cake-5.jpg" alt="Black and white chocolate cake" loading="lazy" width="1080" height="1350"></div>
+          <span class="car-n">1/5</span>
+          <button class="car-b prev" type="button" aria-label="Previous slide">‹</button><button class="car-b next" type="button" aria-label="Next slide">›</button></div>
+        <div class="car-meta"><div><b>Cake carousel</b><span>Studio product shots · 5 slides</span></div><div class="car-dots"><i class=on></i><i></i><i></i><i></i><i></i></div></div>
+      </div>
+      <div class="car rv" id="car-gta">
+        <div class="car-view"><div class="car-track"><img src="assets/img/posts/gta-1.jpg" alt="What if Happy Cakes was in GTA VI?" loading="lazy" width="1080" height="1350"><img src="assets/img/posts/gta-2.jpg" alt="Planning the sweetest heist" loading="lazy" width="1080" height="1350"><img src="assets/img/posts/gta-3.jpg" alt="Precious cargo. Handle with cravings" loading="lazy" width="1080" height="1350"></div>
+          <span class="car-n">1/3</span>
+          <button class="car-b prev" type="button" aria-label="Previous slide">‹</button><button class="car-b next" type="button" aria-label="Next slide">›</button></div>
+        <div class="car-meta"><div><b>GTA VI trend</b><span>Made and posted while the trend was hot · 3 slides</span></div><div class="car-dots"><i class=on></i><i></i><i></i></div></div>
+      </div>
+    </div>
   </div>
 </section>
 
@@ -1031,6 +1063,17 @@ dialog.player::backdrop{background:rgba(11,13,23,.86)}
       if(el.classList.contains('billnote'))el.textContent=el.getAttribute('data-'+k);else el.textContent=el.getAttribute('data-'+k);
     });
   });});
+
+  // Post carousels
+  [].slice.call(document.querySelectorAll('.car')).forEach(function(c){
+    var tr=c.querySelector('.car-track'),n=tr.children.length,pv=c.querySelector('.prev'),nx=c.querySelector('.next'),cnt=c.querySelector('.car-n'),dots=[].slice.call(c.querySelectorAll('.car-dots i'));
+    function idx(){return Math.round(tr.scrollLeft/tr.clientWidth);}
+    function upd(){var i=idx();cnt.textContent=(i+1)+'/'+n;pv.disabled=i<=0;nx.disabled=i>=n-1;dots.forEach(function(d,k){d.classList.toggle('on',k===i);});}
+    pv.addEventListener('click',function(){tr.scrollTo({left:(idx()-1)*tr.clientWidth});});
+    nx.addEventListener('click',function(){tr.scrollTo({left:(idx()+1)*tr.clientWidth});});
+    tr.addEventListener('scroll',function(){window.requestAnimationFrame(upd);},{passive:true});
+    upd();
+  });
 
   // Film player
   var dlg=document.getElementById('player'),pv=document.getElementById('pv'),pw2=document.getElementById('pwait'),pcap=document.getElementById('pcap'),pwt=document.getElementById('pwt');
